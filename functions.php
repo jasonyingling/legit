@@ -7,6 +7,11 @@
  * @package legit
  */
 
+/**
+ * Implement custom color palette
+ */
+require get_template_directory() . '/inc/color-palette.php';
+
 if ( ! function_exists( 'legit_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -89,6 +94,15 @@ if ( ! function_exists( 'legit_setup' ) ) :
 		 * Add support for core block styles
 		 */
 		add_theme_support( 'wp-block-styles' );
+
+		/**
+		 * Custom colors for use in the editor.
+		 *
+		 * @link https://wordpress.org/gutenberg/handbook/reference/theme-support/
+		 */
+		global $legit_color_palette;
+
+		add_theme_support( 'editor-color-palette', $legit_color_palette );
 	}
 endif;
 add_action( 'after_setup_theme', 'legit_setup' );
@@ -104,7 +118,7 @@ function legit_content_width() {
 	// This variable is intended to be overruled from themes.
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
 	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'legit_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'legit_content_width', 700 );
 }
 add_action( 'after_setup_theme', 'legit_content_width', 0 );
 
@@ -139,8 +153,21 @@ function legit_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	wp_enqueue_script( 'fitvids', get_template_directory_uri() .  '/js/jquery.fitvids.js', array( 'jquery' ), '1.2.0', true );
+
+	wp_enqueue_script( 'legit-scripts', get_template_directory_uri() . '/js/legit.js', array( 'fitvids'), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'legit_scripts' );
+
+/**
+ * Enqueue block editor style
+ */
+function legit_block_editor_styles() {
+    wp_enqueue_style( 'legit-editor-styles', get_theme_file_uri( '/css/style-editor.css' ), false, '1.0', 'all' );
+}
+
+add_action( 'enqueue_block_editor_assets', 'legit_block_editor_styles' );
 
 /**
  * Implement the Custom Header feature.

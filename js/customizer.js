@@ -39,4 +39,28 @@
 			}
 		} );
 	} );
+
+	// Update colors in customizer
+	wp.customize( 'legit_primary_color', function( value ) {
+		value.bind( function( to ) {
+			$('.has-legit-primary-color').css( {
+				'color': to
+			} );
+			$('.has-legit-primary-background-color').css({
+				'background-color': to
+			});
+		} );
+	} );
+
+	wp.customize('legit_secondary_color', function (value) {
+		value.bind(function (to) {
+			$('.has-legit-secondary-color').css({
+				'color': to
+			});
+			$('.has-legit-secondary-background-color').css({
+				'background-color': to
+			});
+		});
+	});
+
 } )( jQuery );

@@ -25,6 +25,31 @@ function legit_customize_register( $wp_customize ) {
 			'render_callback' => 'legit_customize_partial_blogdescription',
 		) );
 	}
+
+	global $legit_color_options;
+
+	/**
+	 * Set custom theme colors
+	 */
+	foreach ( $legit_color_options as $color ) {
+		$wp_customize->add_setting(
+			$color['option'], array(
+				'default'           => $color['default'],
+				'sanitize_callback' => 'sanitize_hex_color',
+				'transport'         => $color['transport'],
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, $color['option'], array(
+					'label'       => $color['name'],
+					'description' => $color['description'],
+					'section'     => 'colors',
+				)
+			)
+		);
+	}
+
 }
 add_action( 'customize_register', 'legit_customize_register' );
 
@@ -53,3 +78,44 @@ function legit_customize_preview_js() {
 	wp_enqueue_script( 'legit-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'legit_customize_preview_js' );
+
+/**
+ * Add custom colors to Gutenberg.
+ */
+function legit_gutenberg_colors() {
+
+	global $legit_color_options;
+
+	if ( empty( $legit_color_options ) ) {
+		return;
+	}
+
+	$css = '';
+
+	foreach ( $legit_color_options as $color ) {
+		$custom_color = get_theme_mod( $color['option'], $color['default'] );
+
+		$css .= '.has-' . $color['slug'] . '-color { color: ' . esc_attr( $custom_color ) . ' !important; }';
+		$css .= '.has-' . $color['slug'] . '-background-color { background-color: ' . esc_attr( $custom_color ) . '; }';
+	}
+
+	return wp_strip_all_tags( $css );
+}
+
+/**
+ * Enqueue theme colors within Gutenberg.
+ */
+function legit_gutenberg_styles() {
+	// Add custom colors to Gutenberg.
+	wp_add_inline_style( 'legit-editor-styles', legit_gutenberg_colors() );
+}
+add_action( 'enqueue_block_editor_assets', 'legit_gutenberg_styles' );
+
+/**
+ * Enqueue theme colors.
+ */
+function legit_styles() {
+	// Add custom colors to the front end.
+	wp_add_inline_style( 'legit-style', legit_gutenberg_colors() );
+}
+add_action( 'wp_enqueue_scripts', 'legit_styles' );
