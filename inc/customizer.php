@@ -75,7 +75,13 @@ function legit_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function legit_customize_preview_js() {
+	global $legit_color_options;
+
 	wp_enqueue_script( 'legit-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
+
+	wp_localize_script( 'legit-customizer', 'legit_color_options_js', array(
+		'colorOptions' => json_encode( $legit_color_options ),
+	) );
 }
 add_action( 'customize_preview_init', 'legit_customize_preview_js' );
 

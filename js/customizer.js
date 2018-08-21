@@ -40,27 +40,19 @@
 		} );
 	} );
 
-	// Update colors in customizer
-	wp.customize( 'legit_primary_color', function( value ) {
-		value.bind( function( to ) {
-			$('.has-legit-primary-color').css( {
-				'color': to
-			} );
-			$('.has-legit-primary-background-color').css({
-				'background-color': to
-			});
-		} );
-	} );
-
-	wp.customize('legit_secondary_color', function (value) {
-		value.bind(function (to) {
-			$('.has-legit-secondary-color').css({
-				'color': to
-			});
-			$('.has-legit-secondary-background-color').css({
-				'background-color': to
+	// Setup color options in customizer from localized array
+	$.each(JSON.parse(legit_color_options_js.colorOptions), function(key, color) {
+		console.log(color.name);
+		wp.customize( color.option, function (value) {
+			value.bind(function (to) {
+				$('.has-' + color.slug + '-color').css({
+					'color': to
+				});
+				$('.has-' + color.slug + '-background-color').css({
+					'background-color': to
+				});
 			});
 		});
-	});
+	} );
 
 } )( jQuery );

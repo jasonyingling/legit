@@ -3,11 +3,15 @@
  * legit Color Palette
  *
  * @package legit
- * TODO: Automatically create customizer.js colors with localize_script
- */
-
-/**
- * Add colors here to be implemented into customizer and gutenberg
+ * 
+ * Set up colors for the customizer and Gutenberg color palette.
+ *
+ * Add a new array to add new color options to the customizer and
+ * Gutenberg color palette.
+ *
+ * @since 1.0.0
+ *
+ * @see add_theme_support( 'editor-color-palette' )
  */
 $legit_color_options = array(
 	array(
@@ -15,23 +19,15 @@ $legit_color_options = array(
 		'description' => esc_html__( 'Describe how this color is used.', 'legit' ),
 		'slug' => 'legit-primary',
 		'option' => 'legit_primary_color',
-		'default' => '#bada55',
+		'default' => '#bada55', // 🤘
 		'transport' => 'postMessage',
-	),
-	array(
-		'name' => esc_html__( 'Gutenberg Secondary', 'legit' ),
-		'description' => esc_html__( 'Describe how this color is used.', 'legit' ),
-		'slug' => 'legit-secondary',
-		'option' => 'legit_secondary_color',
-		'default' => '#ff0000',
-		'transport' => 'refresh',
 	),
 );
 
 $legit_color_options = apply_filters( 'legit_filter_color_options', $legit_color_options );
 
 /**
- * Build out the Gutenberg color palette
+ * Build out the Gutenberg color palette to be used in add_theme_support( 'editor-color-palette' );
  */
 $legit_color_palette = array();
 
