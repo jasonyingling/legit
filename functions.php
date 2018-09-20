@@ -157,6 +157,8 @@ function legit_scripts() {
 	wp_enqueue_script( 'fitvids', get_template_directory_uri() .  '/js/jquery.fitvids.js', array( 'jquery' ), '1.2.0', true );
 
 	wp_enqueue_script( 'legit-scripts', get_template_directory_uri() . '/js/legit.js', array( 'fitvids'), '1.0.0', true );
+
+	wp_enqueue_script( 'legit-fonts', '//fonts.googleapis.com/css?family=Merriweather:400,700', array(), '1.0.0', false );
 }
 add_action( 'wp_enqueue_scripts', 'legit_scripts' );
 

@@ -12,6 +12,12 @@ body {
 	background: $color__background-body; /* Fallback for when there is no custom background color defined. */
 }
 
+.site {
+	min-height: 100vh;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+}
+
 hr {
 	background-color: $color__background-hr;
 	border: 0;

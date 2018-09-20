@@ -1,4 +1,15 @@
 .main-navigation {
+	@include font-size(1.125);
+
+	.menu {
+		> li {
+			padding-right: $size__padding-xlarge;
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
 
 	ul {
 		display: none;

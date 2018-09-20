@@ -1,4 +1,7 @@
 .site-header {
+	max-width: $size__content-xlarge;
+	padding: 0 $size__padding-xlarge;
+
 	@media #{$break-small} {
 		display: flex;
 		flex-direction: row;
@@ -7,10 +10,12 @@
 
 		.site-branding {
 			flex: 1 0 auto;
+			padding: $size__padding-xlarge 0;
 		}
 
 		.main-navigation {
 			flex: 0 1 auto;
+			padding: $size__padding-xlarge 0;
 		}
 	}
 }
@@ -22,4 +27,19 @@
 .site-search {
 	display: none;
     width: 100%;
+}
+
+.site-title {
+	@include font-size(2);
+	line-height: 1.25;
+	margin: 0;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.site-description {
+	@include font-size(0.875);
+	margin: 0;
 }

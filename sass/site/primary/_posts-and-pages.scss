@@ -12,16 +12,20 @@
 
 .entry-header,
 .entry-footer {
-	margin: 1em auto;
-	padding: 0 2.5em;
+	margin: 1em auto $size__padding-xlarge;
+	padding: 0 $size__padding-xlarge;
 	max-width: $size__content;
+}
+
+.entry-title {
+	margin-bottom: 0.5em;
 }
 
 .page-content,
 .entry-content,
 .entry-summary {
 	margin: 1.5em auto 0;
-	padding: 0 2.5em;
+	padding: 0 $size__padding-xlarge;
 	max-width: $size__content;
 }
 

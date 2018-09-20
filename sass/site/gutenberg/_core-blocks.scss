@@ -8,10 +8,27 @@
 }
 
 /*--------------------------------------------------------------
+## Blockquote Block
+--------------------------------------------------------------*/
+.wp-block-quote {
+    p {
+        margin-bottom: 0.25em;
+        
+        &:last-of-type {
+            margin-bottom: 0.25em;
+        }
+    }
+}
+
+/*--------------------------------------------------------------
 ## Pull Quote Block
 --------------------------------------------------------------*/
 .wp-block-pullquote {
-    margin-bottom: 1.5em;
+    margin-bottom: $size__padding-xlarge;
+
+    p {
+        margin-bottom: 1.25em;
+    }
     
     &.alignleft {
         margin-left: 0;
@@ -20,4 +37,18 @@
     &.alignright {
         margin-right: 0;
     }
+}
+
+/*--------------------------------------------------------------
+## Cover Image Block
+--------------------------------------------------------------*/
+.wp-block-cover-image {
+    margin-bottom: $size__padding-xlarge;
+}
+
+/*--------------------------------------------------------------
+## Separator
+--------------------------------------------------------------*/
+.wp-block-separator {
+    margin: $size__padding-xlarge auto;
 }

@@ -42,7 +42,6 @@
 
 	// Setup color options in customizer from localized array
 	$.each(JSON.parse(legit_color_options_js.colorOptions), function(key, color) {
-		console.log(color.name);
 		wp.customize( color.option, function (value) {
 			value.bind(function (to) {
 				$('.has-' + color.slug + '-color').css({
