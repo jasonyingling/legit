@@ -154,7 +154,7 @@ function legit_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'fitvids', get_template_directory_uri() .  '/js/jquery.fitvids.js', array( 'jquery' ), '1.2.0', true );
+	//wp_enqueue_script( 'fitvids', get_template_directory_uri() .  '/js/jquery.fitvids.js', array( 'jquery' ), '1.2.0', true );
 
 	wp_enqueue_script( 'legit-scripts', get_template_directory_uri() . '/js/legit.js', array( 'fitvids'), '1.0.0', true );
 
@@ -203,4 +203,26 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  */
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
+}
+
+/**
+ * Add classes to the body depending on thumbnail shown
+ *
+ * @link https://developer.wordpress.org/reference/functions/body_class/
+ */
+add_filter( 'body_class', 'legit_add_body_class' );
+
+if ( ! function_exists( 'legit_add_body_class' ) ) {
+	function legit_add_body_class( $classes ) {
+		//$legit_thumbnail = get_theme_mod( 'legit_thumbnail', 'none' );
+
+		// if ( $legit_thumbnail === 'none' ) {
+		// 	return $classes;
+		// }
+
+		// temporary var
+		$legit_thumbnail = 'legit-size-thumbnail';
+
+		return array_merge( $classes, array( $legit_thumbnail ) );
+	}
 }

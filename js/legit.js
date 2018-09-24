@@ -1,10 +1,10 @@
 jQuery(document).ready(function ($) {
     
     // Fitvids
-    function fitVids() {
-        $('.entry-content').fitVids();
-    }
-    fitVids();
+    // function fitVids() {
+    //     $('.entry-content').fitVids();
+    // }
+    // fitVids();
 
     // Site Search Dropdown
     $('.js-open-site-search').live( 'click', function () {

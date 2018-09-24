@@ -7,13 +7,14 @@ $color__background-ins: #fff9c0;
 
 $color__primary: #bada55;
 $color__accent: #ff0000;
+$color__secondary: #8e8e8e;
 
 $color__text-main: #404040;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
 $color__link: $color__text-main;
-$color__link-visited: $color__text-main;
+$color__link-visited: darken( $color__primary, 20% );
 $color__link-hover: $color__primary;
 
 

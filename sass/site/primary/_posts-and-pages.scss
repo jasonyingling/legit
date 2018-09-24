@@ -18,7 +18,23 @@
 }
 
 .entry-title {
-	margin-bottom: 0.5em;
+	margin-bottom: 0.125em;
+}
+
+.entry-meta {
+	@include font-size(1);
+	color: $color__secondary;
+
+	a {
+		font-weight: 700;
+		color: $color__secondary;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $color__primary;
+		}
+	}
 }
 
 .page-content,
@@ -32,4 +48,67 @@
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.post {
+	&:after {
+		content: '';
+		
+	}
+
+	&:last-child {
+		&:after {
+			display: none;
+		}
+	}
+}
+
+/**
+* 1.1 Archive Layout
+*
+* Description of section, whether or not it has media queries, etc.
+*/
+body:not(.single) {
+	.post {
+		display: flex;
+		max-width: $size__content;
+		padding: 0 $size__padding-xlarge;
+		margin: 1em auto $size__padding-xlarge;
+	}
+	
+	.entry-header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		max-width: 100%;
+		width: 100%;
+		min-height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+	.entry-title {
+		margin-top: 0;
+		width: 100%;
+		align-self: flex-end;
+	}
+
+	.entry-meta {
+		align-self: flex-start;
+	}
+}
+ 
+.legit-size-thumbnail {
+	.legit-thumbnail {
+		flex: 1 0 120px;
+		padding-right: 40px;
+		margin: 0;
+		width: 100px;
+		box-sizing: content-box;
+
+		img {
+			border-radius: 50%;
+			display: block;
+		}
+	}
 }

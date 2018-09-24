@@ -566,21 +566,40 @@ textarea {
 ## Links
 --------------------------------------------------------------*/
 a {
-  border-bottom: 1px solid #bada55;
-  box-shadow: inset 0 -4px 0 0 #bada55;
-  color: #404040;
-  display: inline-block;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all .25s ease-in; }
+  color: #bada55;
+  font-weight: 700; }
   a:visited {
-    color: #404040; }
+    color: #86a524; }
   a:hover, a:focus, a:active {
-    box-shadow: inset 0 -2em 0 0 #bada55; }
+    color: #ff0000; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
     outline: 0; }
+
+.site-title a:not(.wp-block-button__link),
+.entry-title a:not(.wp-block-button__link),
+.entry-content a:not(.wp-block-button__link) {
+  border-bottom: 1px solid #bada55;
+  box-shadow: inset 0 -4px 0 0 #bada55;
+  color: #404040;
+  display: inline;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .25s ease-in; }
+  .site-title a:not(.wp-block-button__link):visited,
+  .entry-title a:not(.wp-block-button__link):visited,
+  .entry-content a:not(.wp-block-button__link):visited {
+    color: #404040; }
+  .site-title a:not(.wp-block-button__link):hover, .site-title a:not(.wp-block-button__link):focus, .site-title a:not(.wp-block-button__link):active,
+  .entry-title a:not(.wp-block-button__link):hover,
+  .entry-title a:not(.wp-block-button__link):focus,
+  .entry-title a:not(.wp-block-button__link):active,
+  .entry-content a:not(.wp-block-button__link):hover,
+  .entry-content a:not(.wp-block-button__link):focus,
+  .entry-content a:not(.wp-block-button__link):active {
+    box-shadow: inset 0 -2em 0 0 #bada55;
+    color: #404040; }
 
 /*--------------------------------------------------------------
 ## Menus
@@ -860,7 +879,17 @@ a {
   max-width: 780px; }
 
 .entry-title {
-  margin-bottom: 0.5em; }
+  margin-bottom: 0.125em; }
+
+.entry-meta {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #8e8e8e; }
+  .entry-meta a {
+    font-weight: 700;
+    color: #8e8e8e; }
+    .entry-meta a:hover, .entry-meta a:focus, .entry-meta a:active {
+      color: #bada55; }
 
 .page-content,
 .entry-content,
@@ -872,6 +901,51 @@ a {
 .page-links {
   clear: both;
   margin: 0 0 1.5em; }
+
+.post:after {
+  content: ''; }
+
+.post:last-child:after {
+  display: none; }
+
+/**
+* 1.1 Archive Layout
+*
+* Description of section, whether or not it has media queries, etc.
+*/
+body:not(.single) .post {
+  display: flex;
+  max-width: 780px;
+  padding: 0 2.5em;
+  margin: 1em auto 2.5em; }
+
+body:not(.single) .entry-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0; }
+
+body:not(.single) .entry-title {
+  margin-top: 0;
+  width: 100%;
+  align-self: flex-end; }
+
+body:not(.single) .entry-meta {
+  align-self: flex-start; }
+
+.legit-size-thumbnail .legit-thumbnail {
+  flex: 1 0 120px;
+  padding-right: 40px;
+  margin: 0;
+  width: 100px;
+  box-sizing: content-box; }
+  .legit-size-thumbnail .legit-thumbnail img {
+    border-radius: 50%;
+    display: block; }
 
 /*--------------------------------------------------------------
 ## Comments

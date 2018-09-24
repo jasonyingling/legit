@@ -1,11 +1,6 @@
 a {
-	border-bottom: 1px solid $color__primary;
-	box-shadow: inset 0 -4px 0 0 $color__primary;
-	color: $color__link;
-	display: inline-block;
+	color: $color__primary;
 	font-weight: 700;
-	text-decoration: none;
-	transition: all .25s ease-in;
 	
 	&:visited {
 		color: $color__link-visited;
@@ -13,7 +8,7 @@ a {
 	&:hover,
 	&:focus,
 	&:active {
-		box-shadow: inset 0 -2em 0 0 $color__primary;
+		color: $color__accent;
 	}
 	&:focus {
 		outline: thin dotted;
@@ -21,5 +16,29 @@ a {
 	&:hover,
 	&:active {
 		outline: 0;
+	}
+}
+
+.site-title,
+.entry-title,
+.entry-content {
+	a:not(.wp-block-button__link) {
+		border-bottom: 1px solid $color__primary;
+		box-shadow: inset 0 -4px 0 0 $color__primary;
+		color: $color__link;
+		display: inline;
+		font-weight: 700;
+		text-decoration: none;
+		transition: all .25s ease-in;
+		
+		&:visited {
+			color: $color__text-main;
+		}
+		&:hover,
+		&:focus,
+		&:active {
+			box-shadow: inset 0 -2em 0 0 $color__primary;
+			color: $color__link;
+		}
 	}
 }

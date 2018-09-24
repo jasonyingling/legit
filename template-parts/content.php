@@ -10,6 +10,9 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	
+	<?php legit_post_thumbnail(); ?>
+
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
@@ -28,10 +31,10 @@
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
-
-	<?php legit_post_thumbnail(); ?>
-
-	<div class="entry-content">
+	
+	<?php
+	if ( is_singular() ) : ?>
+		<div class="entry-content">
 		<?php
 		the_content( sprintf(
 			wp_kses(
@@ -51,9 +54,13 @@
 			'after'  => '</div>',
 		) );
 		?>
-	</div><!-- .entry-content -->
+		</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php legit_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+		<footer class="entry-footer">
+			<?php legit_entry_footer(); ?>
+		</footer><!-- .entry-footer -->
+	<?php endif; ?>
+	
+
+	
 </article><!-- #post-<?php the_ID(); ?> -->
