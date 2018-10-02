@@ -1,12 +1,105 @@
 .main-navigation {
-	@include font-size(1.125);
+	font-size: 8vw;
+	margin-left: auto;
+	line-height: 1.5;
+
+	@media #{$break-medium} {
+		@include font-size(1.125);
+		line-height: 2;
+	}
+
+	> div {
+		transition: all 0.25s ease-in;
+		position: absolute;
+		top: 108px;
+		left: 0;
+		opacity: 0;
+		height: 0;
+		padding-bottom: 40px;
+
+		@media #{$break-medium} {
+			position: relative;
+			top: auto;
+			left: auto;
+			width: auto;
+			height: auto;
+			background: transparent;
+			opacity: 1;
+			padding-bottom: 0;
+		}
+	}
 
 	.menu {
-		> li {
-			padding-right: $size__padding-xlarge;
+		background: $color__secondary-light;
+		padding: 20px 0;
 
-			&:last-child {
-				padding-right: 0;
+		@media #{$break-medium} {
+			background: transparent;
+			padding: 0;
+		}
+
+		> li {
+			ul {
+				padding-left: 20px;
+
+				@media #{$break-medium} {
+					padding-left: 0;
+				}
+			}
+
+			a {
+				padding: 10px 20px;
+				margin: 10px;
+
+				&:hover,
+				&.focus {
+					background: $color__primary;
+				}
+
+				@media #{$break-medium} {
+					padding: 0;
+					margin: 0;
+
+					&:hover,
+					.focus {
+						background: transparent;
+					}
+				}
+			}
+
+			@media #{$break-medium} {
+				&:not(.menu-item-has-children) {
+					&:after {
+						transition: height 0.125s ease-in;
+						content: '';
+						height: 0px;
+						background: $color__primary;
+						width: 100%;
+						position: absolute;
+						bottom: 0;
+						left: 0;
+						z-index: 1;
+					}
+
+					&:hover,
+					.focus {
+						&:after {
+							height: 4px;
+						}
+					}
+				}
+
+				> ul {
+					transition: opacity 0.25s ease-in-out;
+					opacity: 0;
+				}
+
+				&:hover,
+				.focus {
+					> ul {
+						opacity: 1;
+					}
+				}
 			}
 		}
 	}
@@ -16,29 +109,55 @@
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
+		
+		@media #{$break-medium} {
+			background: #ffffff;
+		}
 
 		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-			float: left;
-			position: absolute;
-			top: 100%;
-			left: -999em;
-			z-index: 99999;
-
-			ul {
+			@media #{$break-medium} {
+				box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+				top: 100%;
+				z-index: 99999;
+				float: left;
+				position: absolute;
 				left: -999em;
-				top: 0;
-			}
 
-			li {
-				&:hover > ul,
-				&.focus > ul {
-					left: 100%;
+				ul {
+					left: -999em;
+					top: 0;
 				}
-			}
+			
+				li {
+					&:before {
+						transition: all 0.25s ease-in;
+						content: '';
+						height: 100%;
+						width: 4px;
+						background: $color__primary;
+						position: absolute;
+						left: 0;
+						top: 0;
+						display: block;
+					}
 
-			a {
-				width: 200px;
+					&:hover,
+					&.focus {
+						&:before {
+							width: 100%;
+							opacity: 0.125;
+						}
+
+						> ul {
+							left: 100%;
+						}
+					}
+					
+				}
+
+				a {
+					width: 200px;
+				}
 			}
 
 			:hover > a,
@@ -52,22 +171,34 @@
 
 		li:hover > ul,
 		li.focus > ul {
-			left: auto;
+			left: 0px;
+			opacity: 1.0;
+			transform: translateY(0);
 		}
 	}
 
-	li {
-		float: left;
-		position: relative;
+	@media #{$break-medium} {
+		li {
+			position: relative;
+			padding: 10px 20px;
 
-		&:hover > a,
-		&.focus > a {
+			&:hover > a,
+			&.focus > a {
+				color: $color__primary;
+			}
+
+			@media #{$break-medium} {
+				float: left;
+			}
 		}
 	}
 
 	a {
 		display: block;
 		text-decoration: none;
+		color: $color__text-main;
+		position: relative;
+		z-index: 2;
 	}
 
 	.current_page_item > a,
@@ -83,7 +214,82 @@
 	display: block;
 }
 
-@media #{$break-small} {
+.main-navigation.toggled {
+	> div {
+		width: calc( 100% - 20px );
+		height: calc( 100vh - 118px );
+		background: $color__secondary-light;
+		margin: 0 10px;
+		opacity: 1;
+		overflow: scroll;
+
+		@media #{$break-medium} {
+			width: auto;
+			height: auto;
+			background: transparent;
+			overflow: auto;
+			margin: 0;
+		}
+	}
+}
+
+.menu-toggle {
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+    z-index: 4;
+	display: block;
+	position: relative;
+	text-indent: -999em;
+	background: transparent;
+	border: 0px solid transparent;
+	padding: 0;
+
+	&[aria-expanded=true] {
+		&:before {
+			transform: rotate(45deg);
+			top: 20px;
+		}
+
+		span {
+			opacity: 0;
+		}
+
+		&:after {
+			transform: rotate(-45deg);
+			top: 20px;
+		}
+	}
+
+	span,
+	&:before,
+	&:after {
+		transition-property: transform, top, bottom, right, opacity;
+		transition-duration: 0.25s;
+		transition-timing-function: ease-in;
+		background: $color__text-main;
+		content: '';
+		display: block;
+		width: 30px;
+		height: 5px;
+		position: absolute;
+		right: 7px;
+	}
+
+	&:before {
+		top: 10px;
+	}
+
+	span {
+		top: 20px;
+	}
+
+	&:after {
+		top: 30px;
+	}
+}
+
+@media #{$break-medium} {
 	.menu-toggle {
 		display: none;
 	}

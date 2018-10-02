@@ -71,9 +71,19 @@
 body:not(.single) {
 	.post {
 		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 		max-width: $size__content;
 		padding: 0 $size__padding-xlarge;
 		margin: 1em auto $size__padding-xlarge;
+
+		&:after {
+			content: '';
+			width: 110px;
+			height: 1px;
+			background: $color__secondary;
+			margin-top: $size__padding-xlarge;
+		}
 	}
 	
 	.entry-header {
@@ -88,7 +98,7 @@ body:not(.single) {
 	}
 
 	.entry-title {
-		margin-top: 0;
+		margin: 0;
 		width: 100%;
 		align-self: flex-end;
 	}
@@ -110,5 +120,12 @@ body:not(.single) {
 			border-radius: 50%;
 			display: block;
 		}
+	}
+}
+
+.legit-size-large {
+	.post {
+		flex-direction: row;
+		flex-wrap: wrap;
 	}
 }

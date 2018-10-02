@@ -26,6 +26,14 @@ function legit_customize_register( $wp_customize ) {
 		) );
 	}
 
+	/**
+	 * Theme Options Panel
+	 */
+	$wp_customize->add_section( 'legit_theme_options_panel', array(
+		'title'      => esc_html__( 'Theme Options', 'legit' ),
+		'priority'   => 5,
+	) );
+
 	global $legit_color_options;
 
 	/**
@@ -49,6 +57,35 @@ function legit_customize_register( $wp_customize ) {
 			)
 		);
 	}
+
+	/**
+	 * Create thumbnail layout customizer options.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 */
+	$wp_customize->add_setting( 
+		'legit_thumbnail_layout', array(
+			'default'           => 'none',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control(
+		'legit_thumbnail_layout', array(
+			'label'       => __( 'Legit Thumbnail Layout', 'legit' ),
+			'description' => __( 'Select the layout for thumbnails on post archives.', 'legit' ),
+			'section'     => 'legit_theme_options_panel',
+			'type'        => 'select',
+			'choices'     => array(
+				'none'      => __( 'No thumbnail layout.', 'legit' ),
+				'thumbnail' => __( 'Small thumbnail left of post.', 'legit' ),
+				'large'     => __( 'Large thumbnail above post.', 'legit' ),
+			),
+			'priority'    => 1,
+		)
+	);
 
 }
 add_action( 'customize_register', 'legit_customize_register' );

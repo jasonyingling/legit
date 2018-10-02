@@ -42,3 +42,10 @@ a {
 		}
 	}
 }
+
+.entry-title {
+	a:not(.wp-block-button__link) {
+		box-shadow: inset 0 0 0 0 $color__primary;
+		border-bottom: 0;
+	}
+}

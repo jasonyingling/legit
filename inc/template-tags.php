@@ -119,17 +119,18 @@ if ( ! function_exists( 'legit_post_thumbnail' ) ) :
 	 * element when on single views.
 	 */
 	function legit_post_thumbnail() {
-		//$legit_thumbnail = get_theme_mod( 'legit_thumbnail', 'none' );
+		$legit_thumbnail = get_theme_mod( 'legit_thumbnail_layout', 'none' );
 
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() || is_singular() || $legit_thumbnail === 'none' ) {
 			return;
 		}
+
 		?>
 
 		<figure class="legit-thumbnail">
 			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 				<?php
-				the_post_thumbnail( 'thumbnail', array(
+				the_post_thumbnail( $legit_thumbnail, array(
 					'alt' => the_title_attribute( array(
 						'echo' => false,
 					) ),

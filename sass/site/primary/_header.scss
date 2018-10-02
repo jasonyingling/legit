@@ -1,21 +1,26 @@
 .site-header {
 	max-width: $size__content-xlarge;
 	padding: 0 $size__padding-xlarge;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
 
-	@media #{$break-small} {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: center;
+	.site-branding {
+		flex: 1 0 auto;
+	}
 
-		.site-branding {
-			flex: 1 0 auto;
-			padding: $size__padding-xlarge 0;
-		}
+	.main-navigation {
+		flex: 0 1 auto;
+	}
 
-		.main-navigation {
-			flex: 0 1 auto;
-			padding: $size__padding-xlarge 0;
+	.site-branding,
+	.main-navigation {
+		padding: 20px 0;
+
+		@media #{$break-medium} {
+			padding: 40px 0;
 		}
 	}
 }
@@ -42,4 +47,5 @@
 .site-description {
 	@include font-size(0.875);
 	margin: 0;
+	color: $color__secondary;
 }
