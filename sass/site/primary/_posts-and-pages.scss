@@ -11,7 +11,10 @@
 }
 
 .entry-header,
-.entry-footer {
+.page-header,
+.entry-footer,
+.comments-area,
+.post-navigation {
 	margin: 1em auto $size__padding-xlarge;
 	padding: 0 $size__padding-xlarge;
 	max-width: $size__content;
@@ -43,6 +46,7 @@
 	margin: 1.5em auto 0;
 	padding: 0 $size__padding-xlarge;
 	max-width: $size__content;
+	width: 100%;
 }
 
 .page-links {
@@ -68,21 +72,23 @@
 *
 * Description of section, whether or not it has media queries, etc.
 */
-body:not(.single) {
-	.post {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		max-width: $size__content;
-		padding: 0 $size__padding-xlarge;
-		margin: 1em auto $size__padding-xlarge;
+body.legit-post-feed {
+	.site-main {
+		article {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			max-width: $size__content;
+			padding: 0 $size__padding-xlarge;
+			margin: 1em auto $size__padding-xlarge;
 
-		&:after {
-			content: '';
-			width: 110px;
-			height: 1px;
-			background: $color__secondary;
-			margin-top: $size__padding-xlarge;
+			&:after {
+				content: '';
+				width: 110px;
+				height: 1px;
+				background: $color__secondary;
+				margin-top: $size__padding-xlarge;
+			}
 		}
 	}
 	
@@ -95,6 +101,12 @@ body:not(.single) {
 		min-height: 100%;
 		margin: 0;
 		padding: 0;
+	}
+
+	.entry-summary,
+	.entry-footer {
+		padding: 0;
+		margin: 0;
 	}
 
 	.entry-title {

@@ -16,8 +16,8 @@ input[type="color"],
 textarea {
 	color: $color__text-input;
 	border: 1px solid $color__border-input;
-	border-radius: 3px;
-	padding: 3px;
+	border-radius: 50px;
+	padding: 3px 15px;
 
 	&:focus {
 		color: $color__text-input-focus;

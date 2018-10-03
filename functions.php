@@ -209,10 +209,10 @@ if ( class_exists( 'WooCommerce' ) ) {
  *
  * @link https://developer.wordpress.org/reference/functions/body_class/
  */
-add_filter( 'body_class', 'legit_add_body_class' );
+add_filter( 'body_class', 'legit_add_body_class_thumb' );
 
-if ( ! function_exists( 'legit_add_body_class' ) ) {
-	function legit_add_body_class( $classes ) {
+if ( ! function_exists( 'legit_add_body_class_thumb' ) ) {
+	function legit_add_body_class_thumb( $classes ) {
 		$legit_thumbnail = get_theme_mod( 'legit_thumbnail_layout', 'none' );
 
 		if ( is_singular() || $legit_thumbnail === 'none' ) {
@@ -220,5 +220,22 @@ if ( ! function_exists( 'legit_add_body_class' ) ) {
 		}
 
 		return array_merge( $classes, array( 'legit-size-' . $legit_thumbnail ) );
+	}
+}
+
+/**
+ * Add classes to the body pages displaying posts
+ *
+ * @link https://developer.wordpress.org/reference/functions/body_class/
+ */
+add_filter( 'body_class', 'legit_add_body_class' );
+
+if ( ! function_exists( 'legit_add_body_class' ) ) {
+	function legit_add_body_class( $classes ) {
+		if ( is_singular() ) {
+			return $classes;
+		}
+
+		return array_merge( $classes, array( 'legit-post-feed' ) );
 	}
 }

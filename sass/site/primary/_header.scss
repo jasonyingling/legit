@@ -26,12 +26,26 @@
 }
 
 .site-search {
-	width: 100%;
-}
-
-.site-search {
 	display: none;
-    width: 100%;
+	width: 100%;
+	padding: 40px 0 0;
+
+	form {
+		display: flex;
+
+		label {
+			flex: 1 0 auto;
+
+			input {
+				width: 100%;
+			}
+		}
+	}
+
+	input[type="submit"] {
+		margin-left: 10px;
+		@include font-size(1.125);
+	}
 }
 
 .site-title {
