@@ -32,6 +32,7 @@
 	.menu {
 		background: $color__secondary-light;
 		padding: 20px 0;
+		display: flex;
 
 		@media #{$break-medium} {
 			background: transparent;
@@ -66,6 +67,24 @@
 			ul {
 				width: 100%;
 			}
+		}
+
+		svg {
+			margin-top: 5px;
+		}
+
+		.legit-search-icon {
+
+		}
+
+		.legit-close-icon {
+			display: none;
+		}
+
+		button {
+			padding: 0;
+			background-color: transparent;
+			border-width: 0px;
 		}
 
 		> li {
@@ -249,7 +268,7 @@
 
 			&:hover > a,
 			&.focus > a {
-				color: $color__primary;
+				color: $color__text-main;
 			}
 
 			@media #{$break-medium} {

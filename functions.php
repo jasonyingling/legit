@@ -162,6 +162,16 @@ function legit_scripts() {
 add_action( 'wp_enqueue_scripts', 'legit_scripts' );
 
 /**
+ * SVG Icons class.
+ */
+require get_template_directory() . '/classes/class-legit-svg-icons.php';
+
+/**
+ * SVG Icons related functions.
+ */
+require get_template_directory() . '/inc/icon-functions.php';
+
+/**
  * Enqueue block editor style
  */
 function legit_block_editor_styles() {

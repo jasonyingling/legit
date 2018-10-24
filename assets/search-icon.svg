@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Search Icon</title>
+    <desc>Icon identifying search</desc>
+    <g id="Icon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Search" transform="translate(25.000000, 25.500000) rotate(-45.000000) translate(-25.000000, -25.500000) translate(10.000000, 3.000000)" fill="#2F2F2F" fill-rule="nonzero">
+            <path d="M17,30.8678287 L17,43 C17,44.1045695 16.1045695,45 15,45 C13.8954305,45 13,44.1045695 13,43 L13,30.8678287 C13.6542747,30.9550019 14.3218824,31 15,31 C15.6781176,31 16.3457253,30.9550019 17,30.8678287 Z" id="Combined-Shape"></path>
+            <path d="M15,26 C21.0751322,26 26,21.0751322 26,15 C26,8.92486775 21.0751322,4 15,4 C8.92486775,4 4,8.92486775 4,15 C4,21.0751322 8.92486775,26 15,26 Z M15,30 C6.71572875,30 0,23.2842712 0,15 C0,6.71572875 6.71572875,0 15,0 C23.2842712,0 30,6.71572875 30,15 C30,23.2842712 23.2842712,30 15,30 Z" id="Oval"></path>
+        </g>
+    </g>
+</svg>

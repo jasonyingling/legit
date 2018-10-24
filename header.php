@@ -27,6 +27,7 @@
 	<header id="masthead" class="site-header">
 		<div class="site-search js-site-search">
 			<?php get_search_form(); ?>
+			<?php echo '<button class="js-close-site-search">Close <span class="screen-reader-text">Close search</span>' . legit_get_icon_svg( 'close', 14 ) . '</button>'; ?>
 		</div><!-- .site-search -->
 
 		<div class="site-branding">

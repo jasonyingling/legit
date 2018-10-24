@@ -502,7 +502,6 @@ input[type="reset"],
 input[type="submit"] {
   border: 1px solid;
   border-color: #bada55;
-  border-radius: 50px;
   background: #bada55;
   color: #404040;
   font-size: 16px;
@@ -541,7 +540,6 @@ input[type="color"],
 textarea {
   color: #666;
   border: 1px solid #ccc;
-  border-radius: 50px;
   padding: 3px 15px; }
   input[type="text"]:focus,
   input[type="email"]:focus,
@@ -579,7 +577,7 @@ a {
   a:visited {
     color: #86a524; }
   a:hover, a:focus, a:active {
-    color: #ff0000; }
+    color: #86a524; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
@@ -608,6 +606,11 @@ a {
   .entry-content a:not(.wp-block-button__link):active {
     box-shadow: inset 0 -2em 0 0 #bada55;
     color: #404040; }
+
+.entry-content a:not(.wp-block-button__link) {
+  background-color: #ffffff; }
+  .entry-content a:not(.wp-block-button__link):visited {
+    background-color: #bada55; }
 
 .entry-title a:not(.wp-block-button__link) {
   box-shadow: inset 0 0 0 0 #bada55;
@@ -645,7 +648,8 @@ a {
         padding-bottom: 0; } }
   .main-navigation .menu {
     background: #f4f4f4;
-    padding: 20px 0; }
+    padding: 20px 0;
+    display: flex; }
     @media screen and (min-width: 768px) {
       .main-navigation .menu {
         background: transparent;
@@ -663,6 +667,14 @@ a {
         position: relative; }
       .main-navigation .menu ul {
         width: 100%; } }
+    .main-navigation .menu svg {
+      margin-top: 5px; }
+    .main-navigation .menu .legit-close-icon {
+      display: none; }
+    .main-navigation .menu button {
+      padding: 0;
+      background-color: transparent;
+      border-width: 0px; }
     .main-navigation .menu > li ul {
       padding-left: 20px; }
       @media screen and (min-width: 768px) {
@@ -768,7 +780,7 @@ a {
       padding: 10px 20px; }
       .main-navigation li:hover > a,
       .main-navigation li.focus > a {
-        color: #bada55; } }
+        color: #404040; } }
   @media screen and (min-width: 768px) and (min-width: 768px) {
     .main-navigation li {
       float: left; } }
@@ -1050,6 +1062,11 @@ a {
     margin-left: 10px;
     font-size: 18px;
     font-size: 1.125rem; }
+  .site-search button {
+    padding: 10px 0;
+    float: right;
+    background-color: transparent;
+    border-width: 0; }
 
 .site-title {
   font-size: 32px;

@@ -8,7 +8,7 @@ a {
 	&:hover,
 	&:focus,
 	&:active {
-		color: $color__accent;
+		color: $color__link-visited;
 	}
 	&:focus {
 		outline: thin dotted;
@@ -39,6 +39,15 @@ a {
 		&:active {
 			box-shadow: inset 0 -2em 0 0 $color__primary;
 			color: $color__link;
+		}
+	}
+}
+
+.entry-content {
+	a:not(.wp-block-button__link) {
+		background-color: #ffffff;
+		&:visited {
+			background-color: $color__primary;
 		}
 	}
 }
