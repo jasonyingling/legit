@@ -167,6 +167,11 @@ add_action( 'wp_enqueue_scripts', 'legit_scripts' );
 require get_template_directory() . '/classes/class-legit-svg-icons.php';
 
 /**
+ * Comment walkker class.
+ */
+require get_template_directory() . '/classes/class-legit-walker-comment.php';
+
+/**
  * SVG Icons related functions.
  */
 require get_template_directory() . '/inc/icon-functions.php';

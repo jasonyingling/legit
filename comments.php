@@ -31,16 +31,13 @@ if ( post_password_required() ) {
 			$legit_comment_count = get_comments_number();
 			if ( '1' === $legit_comment_count ) {
 				printf(
-					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'legit' ),
-					'<span>' . get_the_title() . '</span>'
+					esc_html__( '1 comment;', 'legit' )
 				);
 			} else {
 				printf( // WPCS: XSS OK.
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $legit_comment_count, 'comments title', 'legit' ) ),
-					number_format_i18n( $legit_comment_count ),
-					'<span>' . get_the_title() . '</span>'
+					esc_html( _nx( '%1$s comment', '%1$s comments', $legit_comment_count, 'comments', 'legit' ) ),
+					number_format_i18n( $legit_comment_count )
 				);
 			}
 			?>
@@ -50,10 +47,14 @@ if ( post_password_required() ) {
 
 		<ol class="comment-list">
 			<?php
-			wp_list_comments( array(
-				'style'      => 'ol',
-				'short_ping' => true,
-			) );
+			wp_list_comments(
+				array(
+					'walker'      => new Legit_Walker_Comment(),
+					'avatar_size' => legit_get_avatar_size(),
+					'short_ping'  => true,
+					'style'       => 'ol',
+				)
+			);
 			?>
 		</ol><!-- .comment-list -->
 

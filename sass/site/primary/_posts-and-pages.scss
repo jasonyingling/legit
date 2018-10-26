@@ -22,6 +22,7 @@
 
 .entry-title {
 	margin-bottom: 0.125em;
+	word-break: break-word;
 }
 
 .entry-meta {
@@ -65,6 +66,12 @@
 			display: none;
 		}
 	}
+}
+
+.cat-links,
+.tags-links {
+	@include font-size(1);
+	display: block;
 }
 
 /**

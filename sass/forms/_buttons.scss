@@ -2,20 +2,24 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: $color__primary;
+	transition: all 0.125s ease-in;
+	border-width: 0px;
+	border-radius: 4px;
 	background: $color__primary;
 	color: $color__text-main;
 	@include font-size(1);
 	line-height: 1;
-	padding: .6em 2em .4em;
+	font-weight: 700;
+	padding: .75em 1em;
 
 	&:hover {
-		background: rgba( $color__primary, 0.1 );
+		background: rgba( $color__primary, .25 );
+		color: darken( $color__primary, 30% );
 	}
 
 	&:active,
 	&:focus {
-		background: rgba( $color__primary, .1 );
+		background: rgba( $color__primary, .25 );
+		color: darken( $color__primary, 30% );
 	}
 }

@@ -35,3 +35,26 @@ function legit_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'legit_pingback_header' );
+
+/**
+ * Returns the size for avatars used in the theme.
+ */
+function legit_get_avatar_size() {
+	return 24;
+}
+
+/**
+ * Returns true if comment is by author of the post.
+ *
+ * @see get_comment_class()
+ */
+function legit_is_comment_by_post_author( $comment = null ) {
+	if ( is_object( $comment ) && $comment->user_id > 0 ) {
+		$user = get_userdata( $comment->user_id );
+		$post = get_post( $comment->comment_post_ID );
+		if ( ! empty( $user ) && ! empty( $post ) ) {
+			return $comment->user_id === $post->post_author;
+		}
+	}
+	return false;
+}
