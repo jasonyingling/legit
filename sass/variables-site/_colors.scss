@@ -1,4 +1,4 @@
-$color__background-body: #fff;
+$color__background-body: #ffffff;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
 $color__background-button: #e6e6e6;
@@ -7,20 +7,20 @@ $color__background-ins: #fff9c0;
 
 $color__primary: #00CF86;
 $color__accent: #ff0000;
-$color__secondary: #8e8e8e;
+$color__secondary: #545459;
 $color__secondary-light: #f4f4f4;
 
 $color__text-main: #292929;
-$color__text-screen: #21759b;
-$color__text-input: #595959;
+$color__text-screen: #185572;
+$color__text-input: #545459;
 $color__text-input-focus: #111;
 $color__link: $color__text-main;
-$color__link-visited: darken( $color__primary, 20% );
-$color__link-hover: $color__primary;
+$color__link-visited: #006300;
+$color__link-hover: #006300;
 
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;
 $color__border-button-focus: #aaa #bbb #bbb;
 $color__border-input: #ccc;
-$color__border-abbr: #595959;
+$color__border-abbr: #545459;

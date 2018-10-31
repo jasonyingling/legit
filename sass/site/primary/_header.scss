@@ -1,5 +1,7 @@
 .site-header {
 	max-width: $size__content-xlarge;
+	width: 100%;
+	margin: 0 auto;
 	padding: 0 $size__padding-xlarge;
 	display: flex;
 	flex-direction: row;

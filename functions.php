@@ -254,3 +254,16 @@ if ( ! function_exists( 'legit_add_body_class' ) ) {
 		return array_merge( $classes, array( 'legit-post-feed' ) );
 	}
 }
+
+/**
+ * Filters for applying the_content type filters outside the loop
+ * 
+ * @link https://themehybrid.com/weblog/how-to-apply-content-filters
+ */
+add_filter( 'legit_content', 'wptexturize' );
+add_filter( 'legit_content', 'convert_smilies' );
+add_filter( 'legit_content', 'convert_chars' );
+add_filter( 'legit_content', 'wpautop' );
+add_filter( 'legit_content', 'shortcode_unautop' );
+add_filter( 'legit_content', 'wp_make_content_images_responsive' );
+add_filter( 'legit_content', 'do_shortcode' );

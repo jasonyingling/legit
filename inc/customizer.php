@@ -6,6 +6,31 @@
  */
 
 /**
+ * Return whether we're previewing the front page or blog page.
+ */
+function legit_is_static_front_page() {
+	if ( is_front_page() || is_home() ) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+/**
+ * Return whether the banner area is shown.
+ */
+function legit_is_banner_shown() {
+	return get_theme_mod( 'legit_banner_shown' );
+}
+
+/**
+ * Sanitize checkbox/
+ */
+function legit_sanitize_checkbox( $input ) {
+	return ( 1 == $input ) ? 1 : '';
+}
+
+/**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
@@ -29,9 +54,22 @@ function legit_customize_register( $wp_customize ) {
 	/**
 	 * Theme Options Panel
 	 */
-	$wp_customize->add_section( 'legit_theme_options_panel', array(
+	$wp_customize->add_panel( 'legit_theme_options_panel', array(
 		'title'      => esc_html__( 'Theme Options', 'legit' ),
-		'priority'   => 5,
+		'priority'   => 1,
+		'capability' => 'edit_theme_options',
+	) );
+
+	$wp_customize->add_section( 'legit_banner_panel', array(
+		'title'           => esc_html__( 'Banner Options', 'legit' ),
+		'panel'           => 'legit_theme_options_panel',
+		'priority'        => 1,
+	) );
+
+	$wp_customize->add_section( 'legit_blog_layout', array(
+		'title'      => esc_html__( 'Blog Options', 'legit' ),
+		'panel'      => 'legit_theme_options_panel',
+		'priority'   => 2,
 	) );
 
 	global $legit_color_options;
@@ -76,7 +114,7 @@ function legit_customize_register( $wp_customize ) {
 		'legit_thumbnail_layout', array(
 			'label'       => __( 'Legit Thumbnail Layout', 'legit' ),
 			'description' => __( 'Select the layout for thumbnails on post archives.', 'legit' ),
-			'section'     => 'legit_theme_options_panel',
+			'section'     => 'legit_blog_layout',
 			'type'        => 'select',
 			'choices'     => array(
 				'none'      => __( 'No thumbnail layout.', 'legit' ),
@@ -84,6 +122,73 @@ function legit_customize_register( $wp_customize ) {
 				'large'     => __( 'Large thumbnail above post.', 'legit' ),
 			),
 			'priority'    => 1,
+		)
+	);
+
+	/**
+	 * Create banner customizer options.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+	 */
+	$wp_customize->add_setting(
+		'legit_banner_shown', array(
+			'default'           => 'none',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control(
+		'legit_banner_shown', array(
+			'label'       => __( 'Show Banner Section', 'legit' ),
+			'section'     => 'legit_banner_panel',
+			'type'        => 'select',
+			'choices'     => array(
+				'none'    => __( 'Don\'t Show', 'legit' ),
+				'default' => __( 'Default Homepage', 'legit' ),
+				'static'  => __( 'Static Homepage', 'legit' ),
+				'posts'   => __( 'Blog Page', 'legit'),
+				'both'    => __( 'Static Homepage & Blog Page', 'legit' ),
+				'all'     => __( 'Everywhere!', 'legit' ),
+			),
+			'priority'    => 1,
+		)
+	);
+
+	$wp_customize->add_setting(
+		'legit_banner_title', array(
+			'default'           => null,
+			'sanitize_callback' => 'sanitize_text_field',
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'legit_banner_title', array(
+			'label'           => __( 'Legit Banner Title', 'legit' ),
+			'description'     => __( 'Set a title to show in the banner.', 'legit' ),
+			'section'         => 'legit_banner_panel',
+			'type'            => 'text',
+			'priority'        => 2,
+			'active_callback' => 'legit_is_banner_shown',
+		)
+	);
+
+	$wp_customize->add_setting(
+		'legit_banner_text', array(
+			'default'           => null,
+		)
+	);
+
+	$wp_customize->add_control(
+		'legit_banner_text', array(
+			'label'           => __( 'Legit Banner Text', 'legit' ),
+			'description'     => __( 'Set text to show in the banner. You can use basic HTML and shortcodes.', 'legit' ),
+			'section'         => 'legit_banner_panel',
+			'type'            => 'textarea',
+			'priority'        => 3,
+			'active_callback' => 'legit_is_banner_shown',
 		)
 	);
 

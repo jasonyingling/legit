@@ -413,7 +413,7 @@ code, kbd, tt, var {
   font-size: 1rem; }
 
 abbr, acronym {
-  border-bottom: 1px dotted #595959;
+  border-bottom: 1px dotted #545459;
   cursor: help; }
 
 mark, ins {
@@ -444,7 +444,7 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #fff;
+  background: #ffffff;
   /* Fallback for when there is no custom background color defined. */ }
 
 .site {
@@ -543,7 +543,7 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-  color: #595959;
+  color: #545459;
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 3px 15px; }
@@ -581,9 +581,9 @@ a {
   color: #292929;
   font-weight: 700; }
   a:visited {
-    color: #006944; }
+    color: #006300; }
   a:hover, a:focus, a:active {
-    color: #006944; }
+    color: #006300; }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
@@ -628,9 +628,9 @@ a {
     color: #292929; }
 
 .comment-metadata a {
-  color: #595959; }
+  color: #545459; }
   .comment-metadata a:hover, .comment-metadata a:focus {
-    color: #00CF86; }
+    color: #006300; }
 
 .entry-content a:not(.wp-block-button__link) {
   background-color: #ffffff; }
@@ -881,9 +881,14 @@ a {
   .main-navigation ul {
     display: block; } }
 
+.site-main .posts-navigation, .site-main
+.post-navigation {
+  padding: 0 40px; }
+
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
+  max-width: 780px;
   margin: 1em auto 40px;
   overflow: hidden; }
 
@@ -922,7 +927,7 @@ a {
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;
     clip-path: none;
-    color: #21759b;
+    color: #185572;
     display: block;
     font-size: 14px;
     font-size: 0.875rem;
@@ -1036,16 +1041,131 @@ a {
 # Widgets
 --------------------------------------------------------------*/
 .widget-area {
-  margin: 1.5em auto 0; }
-  .widget-area .widget {
-    padding: 0 2.5em;
-    max-width: 960px; }
+  margin: 6em auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1280px; }
 
 .widget {
-  margin: 0 0 1.5em;
+  margin: 0 auto 3em;
+  padding: 0 2.5em;
+  width: 100%;
+  max-width: 960px;
   /* Make sure select elements fit in widgets. */ }
   .widget select {
-    max-width: 100%; }
+    max-width: 100%;
+    width: 100%; }
+
+@media screen and (min-width: 768px) {
+  .widget-title {
+    text-align: center; } }
+
+/* Let's make some widgets only 50% to be stacked into two columns */
+@media screen and (min-width: 768px) {
+  .widget_recent_entries,
+  .widget_recent_comments,
+  .widget_meta,
+  .widget_recent_entries {
+    width: calc( 50% - 1em);
+    flex: 1 0 auto; }
+    .widget_recent_entries .widget-title,
+    .widget_recent_comments .widget-title,
+    .widget_meta .widget-title,
+    .widget_recent_entries .widget-title {
+      text-align: left; } }
+
+.widget_calendar {
+  max-width: 640px; }
+  .widget_calendar tbody {
+    text-align: center; }
+
+.widget_search .search-form {
+  display: flex;
+  width: 100%; }
+  .widget_search .search-form label {
+    width: 100%;
+    margin-right: 10px; }
+    .widget_search .search-form label .search-field {
+      width: 100%; }
+
+.widget_recent_entries ul,
+.widget_recent_comments ul,
+.widget_rss ul,
+.widget_meta ul {
+  padding: 0;
+  list-style-type: none; }
+
+.widget_archive ul,
+.widget_categories ul {
+  list-style-type: none;
+  padding: 0; }
+
+@media screen and (min-width: 37.5em) {
+  .widget_archive > ul > li:hover > ul, .widget_archive > ul > li.focus > ul,
+  .widget_categories > ul > li:hover > ul,
+  .widget_categories > ul > li.focus > ul {
+    left: 50%;
+    margin-left: -125px;
+    position: absolute;
+    border-radius: 4px;
+    border: 1px solid rgba(230, 230, 230, 0.5);
+    box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.05); }
+    .widget_archive > ul > li:hover > ul ul, .widget_archive > ul > li.focus > ul ul,
+    .widget_categories > ul > li:hover > ul ul,
+    .widget_categories > ul > li.focus > ul ul {
+      position: relative;
+      margin-left: 0;
+      left: 0; }
+  .widget_archive ul,
+  .widget_categories ul {
+    text-align: center; }
+    .widget_archive ul ul,
+    .widget_categories ul ul {
+      z-index: 99999;
+      float: left;
+      position: absolute;
+      left: -999em;
+      width: 250px;
+      background-color: #ffffff;
+      margin-left: 0;
+      text-align: left;
+      padding: 0 0.25em; }
+      .widget_archive ul ul ul,
+      .widget_categories ul ul ul {
+        width: 100%;
+        background: transparent; }
+  .widget_archive li,
+  .widget_categories li {
+    display: inline-block;
+    margin: .25em;
+    position: relative; }
+    .widget_archive li li,
+    .widget_categories li li {
+      display: block; }
+      .widget_archive li li li,
+      .widget_categories li li li {
+        margin-left: 1em; } }
+
+.widget_archive a,
+.widget_categories a {
+  font-size: 14px;
+  font-size: 0.875rem;
+  color: #545459;
+  background-color: rgba(230, 230, 230, 0.5);
+  padding: 0.5em 0.75em;
+  border-radius: 4px; }
+  .widget_archive a:hover, .widget_archive a:focus,
+  .widget_categories a:hover,
+  .widget_categories a:focus {
+    color: #292929;
+    background-color: rgba(230, 230, 230, 0.75); }
+  .widget_archive a:visited,
+  .widget_categories a:visited {
+    color: #292929;
+    background-color: rgba(0, 207, 134, 0.25); }
 
 /*--------------------------------------------------------------
 # Content
@@ -1055,6 +1175,8 @@ a {
 --------------------------------------------------------------*/
 .site-header {
   max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
   padding: 0 40px;
   display: flex;
   flex-direction: row;
@@ -1105,7 +1227,7 @@ a {
   font-size: 14px;
   font-size: 0.875rem;
   margin: 0;
-  color: #8e8e8e; }
+  color: #545459; }
 
 /*--------------------------------------------------------------
 ## Posts and pages
@@ -1135,12 +1257,12 @@ a {
 .entry-meta {
   font-size: 16px;
   font-size: 1rem;
-  color: #8e8e8e; }
+  color: #545459; }
   .entry-meta a {
     font-weight: 700;
-    color: #8e8e8e; }
+    color: #545459; }
     .entry-meta a:hover, .entry-meta a:focus, .entry-meta a:active {
-      color: #00CF86; }
+      color: #006300; }
 
 .page-content,
 .entry-content,
@@ -1180,9 +1302,9 @@ body.legit-post-feed .site-main article {
   margin: 1em auto 40px; }
   body.legit-post-feed .site-main article:after {
     content: '';
-    width: 110px;
+    width: 120px;
     height: 1px;
-    background: #8e8e8e;
+    background: #ccc;
     margin-top: 40px; }
 
 body.legit-post-feed .entry-header {
@@ -1190,7 +1312,7 @@ body.legit-post-feed .entry-header {
   flex-wrap: wrap;
   align-items: center;
   max-width: 100%;
-  width: 100%;
+  flex: 1 0 100%;
   min-height: 100%;
   margin: 0;
   padding: 0; }
@@ -1198,7 +1320,8 @@ body.legit-post-feed .entry-header {
 body.legit-post-feed .entry-summary,
 body.legit-post-feed .entry-footer {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  width: 100%; }
 
 body.legit-post-feed .entry-title {
   margin: 0;
@@ -1207,6 +1330,9 @@ body.legit-post-feed .entry-title {
 
 body.legit-post-feed .entry-meta {
   align-self: flex-start; }
+
+.legit-size-thumbnail .has-post-thumbnail .entry-header {
+  flex: 1 0 calc( 100% - 160px); }
 
 .legit-size-thumbnail .legit-thumbnail {
   flex: 1 0 120px;
@@ -1221,6 +1347,48 @@ body.legit-post-feed .entry-meta {
 .legit-size-large .post {
   flex-direction: row;
   flex-wrap: wrap; }
+
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+.legit-header-grid {
+  margin: 0 10px 60px;
+  padding: 60px 0;
+  background-image: linear-gradient(-103deg, #F8F8F8 6%, #F6F6F6 100%); }
+  @media screen and (min-width: 768px) {
+    .legit-header-grid {
+      display: flex; } }
+
+.legit-header {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  flex: 1 0 45%; }
+  .legit-header h1 {
+    margin-top: 0; }
+  .legit-header p {
+    max-width: 380px; }
+
+.legit-header-image {
+  flex: 1 0 55%; }
+  .legit-header-image img,
+  .legit-header-image svg {
+    width: 100%;
+    height: auto; }
+
+@supports (display: grid) {
+  @media screen and (min-width: 768px) {
+    .legit-header-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: auto; }
+    .legit-header {
+      grid-column: 1 / 6;
+      grid-row: 1 / 2; }
+    .legit-header-image {
+      grid-column: 5 / 11;
+      grid-row: 1 / 2; } } }
 
 /*--------------------------------------------------------------
 ## Comments
@@ -1317,7 +1485,7 @@ body.legit-post-feed .entry-meta {
 .comment-reply-link {
   font-size: 14px;
   font-size: 0.875rem;
-  color: #595959;
+  color: #545459;
   background-color: rgba(230, 230, 230, 0.5);
   padding: 0.5em 0.75em;
   border-radius: 4px; }

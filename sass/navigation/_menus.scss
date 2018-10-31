@@ -386,11 +386,19 @@
 	}
 }
 
+.posts-navigation,
+.post-navigation {
+	.site-main & {
+		padding: 0 $size__padding-xlarge;
+	}
+}
+
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
 
 	.site-main & {
+		max-width: $size__content;
 		margin: 1em auto $size__padding-xlarge;
 		overflow: hidden;
 	}

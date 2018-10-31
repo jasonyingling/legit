@@ -61,6 +61,16 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/assets/onboarding.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/assets/onboarding.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/assets/search-icon.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -822,6 +832,19 @@
 		"ma": 1,
 		"oA": 1,
 		"oAP": "/sass/site/gutenberg/_editor.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/sass/site/primary/_banner.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "/sass/site/_banner.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1

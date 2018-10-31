@@ -54,4 +54,11 @@
 		});
 	} );
 
+	// Banner Title and Text
+	wp.customize('legit_banner_title', function(value) {
+		value.bind(function(to) {
+			$('.banner-title').text(to);
+		});
+	});
+
 } )( jQuery );

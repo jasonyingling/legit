@@ -36,7 +36,7 @@
 		&:hover,
 		&:focus,
 		&:active {
-			color: $color__primary;
+			color: $color__link-hover;
 		}
 	}
 }
@@ -91,9 +91,9 @@ body.legit-post-feed {
 
 			&:after {
 				content: '';
-				width: 110px;
+				width: 120px;
 				height: 1px;
-				background: $color__secondary;
+				background: $color__background-hr;
 				margin-top: $size__padding-xlarge;
 			}
 		}
@@ -104,7 +104,7 @@ body.legit-post-feed {
 		flex-wrap: wrap;
 		align-items: center;
 		max-width: 100%;
-		width: 100%;
+		flex: 1 0 100%;
 		min-height: 100%;
 		margin: 0;
 		padding: 0;
@@ -114,6 +114,7 @@ body.legit-post-feed {
 	.entry-footer {
 		padding: 0;
 		margin: 0;
+		width: 100%;
 	}
 
 	.entry-title {
@@ -128,6 +129,12 @@ body.legit-post-feed {
 }
  
 .legit-size-thumbnail {
+	.has-post-thumbnail {
+		.entry-header {
+			flex: 1 0 calc( 100% - 160px );
+		}
+	}
+
 	.legit-thumbnail {
 		flex: 1 0 120px;
 		padding-right: 40px;
@@ -140,6 +147,7 @@ body.legit-post-feed {
 			display: block;
 		}
 	}
+	
 }
 
 .legit-size-large {

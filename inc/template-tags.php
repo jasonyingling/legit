@@ -142,3 +142,69 @@ if ( ! function_exists( 'legit_post_thumbnail' ) ) :
 	<?php
 	}
 endif;
+
+if ( ! function_exists( 'legit_banner' ) ) :
+	function legit_banner( $post_id ) {
+
+		$banner_shown = get_theme_mod( 'legit_banner_shown', 'none' );
+
+		if ( 'none' === $banner_shown  ) {
+			return;
+		} elseif ( 'both' === $banner_shown ) {
+			if ( ! ( is_front_page() || is_home() ) ) {
+				return;
+			}
+		} elseif ( 'default' === $banner_shown ) {
+			if ( ! ( is_front_page() && is_home() ) ) {
+				return;
+			}
+		} elseif ( 'static' === $banner_shown ) {
+			if ( ! is_front_page() ) {
+				return;
+			}
+		} elseif ( 'posts' === $banner_shown ) {
+			if ( ! is_home() ) {
+				return;
+			}
+		}
+
+		if ( is_paged() && ! 'all' === $banner_shown ) {
+			return;
+		}
+
+		$legit_banner_title = get_theme_mod( 'legit_banner_title' );
+		$legit_banner_text  = get_theme_mod( 'legit_banner_text' );
+
+		?>
+
+		<div class="legit-header-grid">
+
+			<?php do_action( 'legit_before_banner' ); ?>
+
+			<header class="legit-header">
+				<?php  
+				
+				if ( $legit_banner_title ) {
+					printf( '<h1 class="entry-title banner-title">%s</h1>', $legit_banner_title );
+				}
+
+				if ( $legit_banner_text ) {
+					$legit_text = apply_filters( 'legit_content', $legit_banner_text );
+					printf( '<div class="banner-text">%s</div>', $legit_text );
+				}
+				
+				?>
+			</header><!-- .legit-header -->
+
+			<?php do_action( 'legit_after_banner_title' ); ?>
+
+			<figure class="legit-header-image">
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/onboarding.svg" >
+			</figure>
+
+			<?php do_action( 'legit_after_banner' ); ?>
+		</div><!-- .legit-header-bg -->
+
+		<?php
+	}
+endif;

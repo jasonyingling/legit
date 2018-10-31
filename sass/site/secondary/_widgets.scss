@@ -1,17 +1,165 @@
 .widget-area {
-	margin: 1.5em auto 0;
-	
-	.widget {
-		padding: 0 2.5em;
-		max-width: $size__content-large;
-	}
+	margin: 6em auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	width: 100%;
+	max-width: $size__content-xlarge;
 }
 
 .widget {
-	margin: 0 0 1.5em;
+	margin: 0 auto 3em;
+	padding: 0 2.5em;
+	width: 100%;
+	max-width: $size__content-large;
 
 	/* Make sure select elements fit in widgets. */
 	select {
 		max-width: 100%;
+		width: 100%;
+	}
+}
+
+.widget-title {
+	@media #{$break-medium} {
+		text-align: center;
+	}
+}
+
+/* Let's make some widgets only 50% to be stacked into two columns */
+.widget_recent_entries,
+.widget_recent_comments,
+.widget_meta,
+.widget_recent_entries {
+	@media #{$break-medium} {
+		width: calc( 50% - 1em );
+		flex: 1 0 auto;
+
+		.widget-title {
+			text-align: left;
+		}
+	}
+}
+
+.widget_calendar {
+	max-width: 640px;
+	
+	tbody {
+		text-align: center;
+	}
+}
+
+.widget_search {
+	.search-form {
+		display: flex;
+		width: 100%;
+
+		label {
+			width: 100%;
+			margin-right: 10px;
+
+			.search-field {
+				width: 100%;
+			}
+		}
+	}
+}
+
+.widget_recent_entries,
+.widget_recent_comments,
+.widget_rss,
+.widget_meta {
+	ul {
+		padding: 0;
+		list-style-type: none;
+	}
+}
+
+.widget_archive,
+.widget_categories {
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	@media #{$break-small} {
+	> ul {
+		> li {
+			&:hover,
+			&.focus {
+				> ul {
+					left: 50%;
+					margin-left: -125px;
+					position: absolute;
+					border-radius: 4px;
+					border: 1px solid rgba($color__background-button, 0.5);
+					box-shadow: 0px 2px 3px 1px rgba( 0, 0, 0, .05 );
+
+					ul {
+						position: relative;
+						margin-left: 0;
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+
+	ul {
+		text-align: center;
+
+		ul {
+			z-index: 99999;
+			float: left;
+			position: absolute;
+			left: -999em;
+			width: 250px;
+			background-color: $color__background-body;
+			margin-left: 0;
+			text-align: left;
+			padding: 0 0.25em;
+
+			ul {
+				width: 100%;
+				background: transparent;
+			}
+		}
+	}
+
+	li {
+		display: inline-block;
+		margin: .25em;
+		position: relative;
+
+		li {
+			display: block;
+
+			li {
+				margin-left: 1em;
+			}
+		}
+
+	}
+	}
+
+	a {
+		@include font-size(0.875);
+		color: $color__text-input;
+		background-color: rgba($color__background-button, 0.5);
+		padding: 0.5em 0.75em;
+		border-radius: 4px;
+
+		&:hover,
+		&:focus {
+			color: $color__text-main;
+			background-color: rgba($color__background-button, 0.75);
+		}
+
+		&:visited {
+			color: $color__text-main;
+			background-color: rgba( $color__primary, .25 );
+		}
 	}
 }
