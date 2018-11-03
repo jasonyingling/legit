@@ -1,5 +1,11 @@
 jQuery(document).ready(function ($) {
 
+    // Fitvids
+    function fitVids() {
+        $('.entry-content').fitVids();
+    }
+    fitVids();
+
     // Site Search Dropdown
     $('.js-open-site-search').live( 'click', function () {
         openSearch();
@@ -24,7 +30,7 @@ jQuery(document).ready(function ($) {
 			.removeClass('js-close-site-search')
 			.addClass('js-open-site-search');
         $('.js-site-search').slideUp();
-        $('.menu .js-open-site-search button').focus();
+        $('.legit-search').focus();
     }
 
 });

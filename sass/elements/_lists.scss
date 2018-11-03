@@ -1,5 +1,10 @@
 ul, ol {
 	margin: 0 0 $size__padding-xlarge 0;
+	padding-left: 20px;
+
+	@media #{$break-medium} {
+		padding-left: 40px;
+	}
 }
 
 ul {

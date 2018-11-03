@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var container, html, button, menu, links, i, len, containerWidgets, menuWidget;
+	var container, html, button, menu, links, buttons, i, j, k, m, len, containerWidgets, menuWidget;
 
 	html = document.getElementsByTagName('html')[0];
 
@@ -40,7 +40,7 @@
 		}
 	}
 
-	button = container.getElementsByTagName('button')[0];
+	button = container.getElementsByClassName('menu-toggle')[0];
 	if ('undefined' === typeof button) {
 		return;
 	}
@@ -81,6 +81,14 @@
 		links[i].addEventListener('blur', toggleFocus, true);
 	}
 
+	buttons = menu.getElementsByTagName('button');
+
+	for (m = 0, len = links.length; m < len - 1; m++) {
+		if ( buttons[m] ) {
+			buttons[m].addEventListener('click', toggleMobileNav, true);
+		}		
+	}
+
 	/**
 	 * Sets or removes .focus class on an element.
 	 */
@@ -100,6 +108,17 @@
 
 			self = self.parentElement;
 		}
+	}
+
+	/**
+	 * Sets or removes .focused class on an element.
+	 */
+	function toggleMobileNav() {
+		var self = this;
+
+		self = self.parentElement;
+		
+		self.classList.toggle("nav-open");
 	}
 
 	/**

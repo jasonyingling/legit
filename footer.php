@@ -14,19 +14,17 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'legit' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'legit' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'legit' ), 'legit', '<a href="https://themes.pizza">Themes.Pizza</a>' );
-				?>
-		</div><!-- .site-info -->
+
+		<aside id="legit-footer" class="widget-area widget-area--footer">
+			<div class="site-branding widget">
+				<?php the_custom_logo(); ?>
+				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+			</div><!-- .site-branding -->
+			<?php dynamic_sidebar( 'footer-1' ); ?>
+		</aside><!-- #secondary -->
+
+		<?php legit_footer_site_info(); ?>
+		
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

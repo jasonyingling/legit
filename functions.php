@@ -95,6 +95,14 @@ if ( ! function_exists( 'legit_setup' ) ) :
 		 */
 		add_theme_support( 'wp-block-styles' );
 
+		// Add support for editor styles
+		add_theme_support( 'editor-styles' );
+
+		/**
+		 * Add support for responsive embeds in Gutenberg
+		 */
+		add_theme_support( 'responsive-embeds' );
+
 		/**
 		 * Custom colors for use in the editor.
 		 *
@@ -137,6 +145,16 @@ function legit_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer', 'legit' ),
+		'id'            => 'footer-1',
+		'description'   => esc_html__( 'Add widgets here.', 'legit' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'legit_widgets_init' );
 
@@ -151,6 +169,8 @@ function legit_scripts() {
 	wp_enqueue_script( 'legit-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'legit-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'fitVids', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), '1.2.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -267,3 +287,23 @@ add_filter( 'legit_content', 'wpautop' );
 add_filter( 'legit_content', 'shortcode_unautop' );
 add_filter( 'legit_content', 'wp_make_content_images_responsive' );
 add_filter( 'legit_content', 'do_shortcode' );
+
+/**
+ * Add a button to menu items with children for expanding the mobile nav.
+ *
+ * @param  string  $item_output The menu item output.
+ * @param  WP_Post $item        Menu item object.
+ * @param  int     $depth       Depth of the menu.
+ * @param  array   $args        wp_nav_menu() arguments.
+ * @return string  $item_output The menu item output with social icon.
+ */
+function legit_menu_toggle( $item_output, $item, $depth, $args ) {
+	// Add the button element after the line items link
+	if ( 'menu-1' === $args->theme_location && in_array( 'menu-item-has-children', $item->classes ) ) {
+		$button = '<button class="menu-item-toggle legit-button-alt"><span class="screen-reader-text">Toggle Sub Menu</span><span class="toggle-icon">+</span></button>';
+		$item_output = str_replace( '</a>', '</a>' . $button, $item_output );
+	}
+
+	return $item_output;
+}
+add_filter( 'walker_nav_menu_start_el', 'legit_menu_toggle', 10, 4 );

@@ -18,6 +18,12 @@
             margin-bottom: 0.25em;
         }
     }
+
+    &:not(.is-large) {
+        &:not(.is-style-large) {
+            border-color: $color__primary;
+        }
+    }
 }
 
 /*--------------------------------------------------------------
@@ -25,6 +31,7 @@
 --------------------------------------------------------------*/
 .wp-block-pullquote {
     margin-bottom: $size__padding-xlarge;
+    border-color: $color__text-main;
 
     p {
         margin-bottom: 1.25em;

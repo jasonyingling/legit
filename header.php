@@ -60,6 +60,10 @@
 				'menu_id'        => 'primary-menu',
 			) );
 			?>
+			<button class="js-open-site-search legit-button-white legit-search">
+				<span class="screen-reader-text">Search</span><?php echo legit_get_icon_svg( 'search' ); ?>
+			</button>
+			
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 

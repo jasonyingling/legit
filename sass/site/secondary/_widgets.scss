@@ -10,9 +10,13 @@
 
 .widget {
 	margin: 0 auto 3em;
-	padding: 0 2.5em;
 	width: 100%;
 	max-width: $size__content-large;
+	padding: 0 20px;
+
+	@media #{$break-medium} {
+		padding: 0 $size__padding-xlarge;
+	}
 
 	/* Make sure select elements fit in widgets. */
 	select {
@@ -69,10 +73,17 @@
 .widget_recent_entries,
 .widget_recent_comments,
 .widget_rss,
-.widget_meta {
+.widget_meta,
+.widget_nav_menu {
 	ul {
 		padding: 0;
 		list-style-type: none;
+	}
+}
+
+.widget_rss {
+	li {
+		margin-bottom: 1em;
 	}
 }
 

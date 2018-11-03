@@ -2,18 +2,23 @@
 	max-width: $size__content-xlarge;
 	width: 100%;
 	margin: 0 auto;
-	padding: 0 $size__padding-xlarge;
+	padding: 0 20px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
 
+	@media #{$break-medium} {
+		padding: 0 $size__padding-xlarge;
+	}
+
 	.site-branding {
 		flex: 1 0 auto;
 	}
 
 	.main-navigation {
+		display: flex;
 		flex: 0 1 auto;
 	}
 
@@ -58,9 +63,13 @@
 }
 
 .site-title {
-	@include font-size(2);
+	@include font-size(1.75);
 	line-height: 1.25;
 	margin: 0;
+
+	@media #{$break-medium} {
+		@include font-size(2);
+	}
 
 	a {
 		text-decoration: none;
@@ -68,7 +77,16 @@
 }
 
 .site-description {
-	@include font-size(0.875);
-	margin: 0;
+	@include font-size(0.75);
+	margin: 5px 0 0;
 	color: $color__secondary;
+	max-width: 170px;
+	line-height: 1.5;
+
+	@media #{$break-medium} {
+		@include font-size(0.875);
+		max-width: 200px;
+		margin: 0;
+		line-height: 2;
+	}
 }

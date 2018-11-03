@@ -166,7 +166,7 @@ function legit_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		'legit_banner_title', array(
-			'label'           => __( 'Legit Banner Title', 'legit' ),
+			'label'           => __( 'Banner Title', 'legit' ),
 			'description'     => __( 'Set a title to show in the banner.', 'legit' ),
 			'section'         => 'legit_banner_panel',
 			'type'            => 'text',
@@ -177,18 +177,72 @@ function legit_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting(
 		'legit_banner_text', array(
-			'default'           => null,
+			'default' => null,
 		)
 	);
 
 	$wp_customize->add_control(
 		'legit_banner_text', array(
-			'label'           => __( 'Legit Banner Text', 'legit' ),
+			'label'           => __( 'Banner Text', 'legit' ),
 			'description'     => __( 'Set text to show in the banner. You can use basic HTML and shortcodes.', 'legit' ),
 			'section'         => 'legit_banner_panel',
 			'type'            => 'textarea',
 			'priority'        => 3,
 			'active_callback' => 'legit_is_banner_shown',
+		)
+	);
+
+	$wp_customize->add_setting( 
+		'legit_banner_image', array(
+			'default'			=> '',
+			'sanitize_callback'	=> 'absint',
+			'transport'			=> 'postMessage'
+		) 
+	);
+
+	$wp_customize->add_control( 
+		new WP_Customize_Media_Control( 
+			$wp_customize, 
+			'legit_banner_image', array(
+				'label'				=> __( 'Banner Image', 'legit' ),
+				'mime_type'			=> 'image',
+				'section'			=> 'legit_banner_panel',
+				'priority'			=> 4
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'legit_footer_title', array(
+			'default'           => null,
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+
+	$wp_customize->add_control(
+		'legit_footer_title', array(
+			'label'           => __( 'Copyright Title', 'legit' ),
+			'description'     => __( 'Set the copyright title.', 'legit' ),
+			'section'         => 'title_tagline',
+			'type'            => 'text',
+			'priority'        => 40,
+		)
+	);
+
+	$wp_customize->add_setting(
+		'legit_footer_title_link', array(
+			'default'           => null,
+			'sanitize_callback' => 'esc_url',
+		)
+	);
+
+	$wp_customize->add_control(
+		'legit_footer_title_link', array(
+			'label'           => __( 'Copyright Link', 'legit' ),
+			'description'     => __( '(optional) Set the copyright link.', 'legit' ),
+			'section'         => 'title_tagline',
+			'type'            => 'text',
+			'priority'        => 41,
 		)
 	);
 

@@ -22,4 +22,30 @@ input[type="submit"] {
 		background: rgba( $color__primary, .25 );
 		color: darken( $color__primary, 30% );
 	}
+
+	&.legit-button-alt {
+		color: $color__text-input;
+		background-color: rgba($color__background-button, 0.5);
+
+		&:hover,
+		&:focus {
+			color: $color__text-main;
+			background-color: rgba($color__background-button, 0.75);
+		}
+	}
+
+	&.legit-button-white {
+		background-color: #ffffff;
+
+		&:hover,
+		&:focus {
+			color: $color__text-main;
+			background-color: rgba($color__background-button, 0.75);
+		}
+	}
+
+	&.legit-search {
+		margin-right: -1em;
+	}
 }
+

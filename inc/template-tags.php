@@ -144,10 +144,20 @@ if ( ! function_exists( 'legit_post_thumbnail' ) ) :
 endif;
 
 if ( ! function_exists( 'legit_banner' ) ) :
+	/**
+	 * Function to output the banner.
+	 *
+	 * Conditional logic and markup for the legit banner section.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param int $oost_id The ID of the current post.
+	 */
 	function legit_banner( $post_id ) {
 
 		$banner_shown = get_theme_mod( 'legit_banner_shown', 'none' );
 
+		// Conditional logic to determine if the banner should be shown on the current page.
 		if ( 'none' === $banner_shown  ) {
 			return;
 		} elseif ( 'both' === $banner_shown ) {
@@ -168,43 +178,107 @@ if ( ! function_exists( 'legit_banner' ) ) :
 			}
 		}
 
-		if ( is_paged() && ! 'all' === $banner_shown ) {
+		if ( is_paged() && ! 'all' === $banner_shown && ! is_home() ) {
 			return;
 		}
 
-		$legit_banner_title = get_theme_mod( 'legit_banner_title' );
-		$legit_banner_text  = get_theme_mod( 'legit_banner_text' );
+		// Get the theme mods and store to variables so we don't have to do it multiple times.
+		$legit_banner_title    = get_theme_mod( 'legit_banner_title' );
+		$legit_banner_text     = get_theme_mod( 'legit_banner_text' );
+		$legit_banner_image_id = get_theme_mod( 'legit_banner_image' );
+
+		do_action( 'legit_before_banner' );
 
 		?>
 
 		<div class="legit-header-grid">
 
-			<?php do_action( 'legit_before_banner' ); ?>
+			<?php do_action( 'legit_before_banner_header' ); ?>
 
+			<?php 
+			
+			if ( $legit_banner_title || $legit_banner_text ) : 
+			
+			?>
 			<header class="legit-header">
 				<?php  
+
+				do_action( 'legit_before_banner_title' );
 				
 				if ( $legit_banner_title ) {
-					printf( '<h1 class="entry-title banner-title">%s</h1>', $legit_banner_title );
+					$legit_banner_title_output = sprintf( '<h1 class="entry-title banner-title">%s</h1>', esc_html( $legit_banner_title ) );
+					/**
+					 * Filter for editing the output of the banner title section.
+					 */
+					echo apply_filters( 'legit_banner_title_output', $legit_banner_title_output, $legit_banner_title );
 				}
 
+				do_action( 'legit_after_banner_title' );
+
 				if ( $legit_banner_text ) {
-					$legit_text = apply_filters( 'legit_content', $legit_banner_text );
-					printf( '<div class="banner-text">%s</div>', $legit_text );
+					$allowed_tags      = wp_kses_allowed_html( 'post' );
+					$legit_text        = apply_filters( 'legit_content', wp_kses( $legit_banner_text, $allowed_tags ) );
+					$legit_text_output = sprintf( '<div class="banner-text">%s</div>', $legit_text );
+					/**
+					 * Filter for editing output of the banner text section.
+					 */
+					echo apply_filters( 'legit_banner_text_output', $legit_text_output, $legit_text );
 				}
+
+				do_action( 'legit_after_banner_text' );
 				
 				?>
 			</header><!-- .legit-header -->
+			<?php 
+			
+			do_action( 'legit_after_banner_header');
+				
+			endif; // end if banner title or banner text
+			
+			if ( $legit_banner_image_id ) {
+				$legit_image_output = sprintf( '<figure class="legit-header-image">%s</figure>', wp_get_attachment_image( absint( $legit_banner_image_id ), 'large' ) );
+				
+				echo apply_filters( 'legit_banner_image_output', $legit_image_output, $legit_banner_image_id );
+			}
+					
+			do_action( 'legit_after_banner_image' ); 
+			
+			?>
 
-			<?php do_action( 'legit_after_banner_title' ); ?>
-
-			<figure class="legit-header-image">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/onboarding.svg" >
-			</figure>
-
-			<?php do_action( 'legit_after_banner' ); ?>
 		</div><!-- .legit-header-bg -->
 
+		<?php
+
+		do_action( 'legit_after_banner' );
+	}
+endif;
+
+if ( ! function_exists( 'legit_footer_site_info' ) ) :
+	function legit_footer_site_info() {
+		?>
+		<div class="site-info">
+			<?php
+			$legit_footer_title     = get_theme_mod( 'legit_footer_title', get_bloginfo( 'name' ) );
+			$legit_footer_link      = get_theme_mod( 'legit_footer_title_link' );
+
+			if ( $legit_footer_link ) {
+				$legit_footer_title = '<a href="' . esc_url( $legit_footer_link ) . '"><span class="copyright--site-title">' . $legit_footer_title . '</span></a>';
+			} else {
+				$legit_footer_title = '<span class="copyright--site-title">' . esc_html( $legit_footer_title ) . '</span>';
+			}
+			
+			$legit_footer_output    = sprintf(
+				'<span class="copyright">%s</span>
+				<span class="copyright--time">%s</span>
+				%s',
+				__( '&copy;', 'legit' ),
+				current_time( 'Y' ),
+				$legit_footer_title
+			);
+
+			echo apply_filters( 'legit_footer_site_output', $legit_footer_output );
+			?>
+		</div><!-- .site-info -->
 		<?php
 	}
 endif;

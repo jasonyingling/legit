@@ -32,34 +32,60 @@
 	.menu {
 		background: $color__secondary-light;
 		padding: 20px 0;
-		display: flex;
+		
 
 		@media #{$break-medium} {
 			background: transparent;
 			padding: 0;
+			display: flex;
+		}
+
+		.menu-item-toggle {
+			display: none;
 		}
 
 		@media #{$break-medium-up} {
 			.menu-item-has-children {
+				position: relative;
+
 				> a {
 					display: flex;
 
-					&:after {
-						transition: transform 0.25s ease-in;
-						content: '+';
-						margin-left: auto;
+					+ .menu-item-toggle {
+						@include font-size(3);
+						display: block;
+						width: 44px;
+						height: 44px;
+						position: absolute;
+						top: 50%;
+						margin-top: -22px;
+						right: 40px;
+						z-index: 2;
+						line-height: 44px;
+
+						.toggle-icon {
+							transition: transform 0.25s ease-in;
+							display: block;
+						}
 					}
 				}
 
-				&:hover,
-				&.focus {
+				ul {
+					display: none;
+				}
+
+				&.nav-open {
 					> a {
-						&:after {
-							transform: rotate(45deg);
+						+ .menu-item-toggle {
+							.toggle-icon {
+								transform: rotate(45deg);
+							}
 						}
 					}
 					> ul {
 						position: relative;
+						left: 0;
+						display: block;
 					}
 				}
 			}
@@ -73,17 +99,13 @@
 			margin-top: 5px;
 		}
 
-		.legit-search-icon {
-
-		}
-
 		.legit-close-icon {
 			display: none;
 		}
 
 		button {
 			padding: 0;
-			background-color: transparent;
+			//background-color: transparent;
 			border-width: 0px;
 		}
 
@@ -98,11 +120,13 @@
 
 			a {
 				padding: 10px 20px;
-				margin: 10px;
+				margin: 0;
+				display: block;
+				clear: both;
 
 				&:hover,
 				&.focus {
-					background: $color__primary;
+					background: rgba($color__background-button, 0.75);
 				}
 
 				@media #{$break-medium} {
@@ -187,8 +211,8 @@
 				&:hover,
 				&.focus {
 					> ul {
-						left: 0;
-						position: relative;
+						// left: 0;
+						// position: relative;
 
 						@media #{$break-medium} {
 							left: 100%;
@@ -243,21 +267,15 @@
 					width: 200px;
 				}
 			}
-
-			:hover > a,
-			.focus > a {
-			}
-
-			a:hover,
-			a.focus {
-			}
 		}
 
 		li:hover > ul,
 		li.focus > ul {
-			left: 0px;
-			opacity: 1.0;
-			transform: translateY(0);
+			@media #{$break-medium} {
+				left: 0px;
+				opacity: 1.0;
+				transform: translateY(0);
+			}
 		}
 	}
 
@@ -389,7 +407,11 @@
 .posts-navigation,
 .post-navigation {
 	.site-main & {
-		padding: 0 $size__padding-xlarge;
+		padding: 0 20px;
+
+		@media #{$break-medium} {
+			padding: 0 $size__padding-xlarge;
+		}
 	}
 }
 

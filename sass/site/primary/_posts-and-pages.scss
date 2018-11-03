@@ -16,8 +16,12 @@
 .comments-area,
 .post-navigation {
 	margin: 1em auto $size__padding-xlarge;
-	padding: 0 $size__padding-xlarge;
+	padding: 0 20px;
 	max-width: $size__content;
+
+	@media #{$break-medium} {
+		padding: 0 $size__padding-xlarge;
+	}
 }
 
 .entry-title {
@@ -45,9 +49,13 @@
 .entry-content,
 .entry-summary {
 	margin: 1.5em auto 0;
-	padding: 0 $size__padding-xlarge;
+	padding: 0 20px;
 	max-width: $size__content;
 	width: 100%;
+
+	@media #{$break-medium} {
+		padding: 0 $size__padding-xlarge;
+	}
 }
 
 .page-links {
@@ -86,8 +94,12 @@ body.legit-post-feed {
 			flex-direction: row;
 			flex-wrap: wrap;
 			max-width: $size__content;
-			padding: 0 $size__padding-xlarge;
+			padding: 0 20px;
 			margin: 1em auto $size__padding-xlarge;
+
+			@media #{$break-medium} {
+				padding: 0 $size__padding-xlarge;
+			}
 
 			&:after {
 				content: '';
