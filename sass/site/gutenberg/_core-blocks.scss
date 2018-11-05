@@ -31,10 +31,21 @@
 --------------------------------------------------------------*/
 .wp-block-pullquote {
     margin-bottom: $size__padding-xlarge;
-    border-color: $color__text-main;
+    border-width: 0px 0px 0px 0px;
+    text-align: left;
+    padding: 0 0 0 1.5em;
+
+    &:not(.has-background) {
+        border-color: $color__primary;
+        border-width: 0px 0px 0px 4px;
+    }
 
     p {
         margin-bottom: 1.25em;
+
+        &:last-of-type {
+            margin-bottom: .5em;
+        }
     }
     
     &.alignleft {
@@ -58,4 +69,151 @@
 --------------------------------------------------------------*/
 .wp-block-separator {
     margin: $size__padding-xlarge auto;
+    border-bottom-width: 0px;
+
+    &.is-style-wide {
+        border-bottom-width :0px;
+    }
+}
+
+/*--------------------------------------------------------------
+## Block Button
+--------------------------------------------------------------*/
+.wp-block-button {
+    .wp-block-button__link {
+        border-radius: 4px;
+    }
+}
+
+.wp-block-button__link {
+    &:not(.has-background) {
+        background-color: $color__primary;
+
+            &:hover {
+                background: rgba( $color__primary, .25 );
+                color: darken( $color__primary, 30% );
+            }
+
+            &:active,
+            &:focus {
+                background: rgba( $color__primary, .25 );
+                color: darken( $color__primary, 30% );
+	        }
+    }
+
+    &:not(.has-text-color) {
+        color: $color__text-main;
+    }
+}
+
+/*--------------------------------------------------------------
+## Media & Text
+--------------------------------------------------------------*/
+.wp-block-media-text {
+    .wp-block-media-text__content {
+        padding-right: 0px;
+    }
+
+    &.has-media-on-the-right{
+        .wp-block-media-text__content {
+            padding-right: 8%;
+            padding-left: 0px;
+        }
+    }
+
+
+}
+
+.wp-block-media-text__content {
+    > *:first-child {
+        margin: 0;
+    }
+}
+
+/*--------------------------------------------------------------
+## Columns
+--------------------------------------------------------------*/
+.wp-block-columns {
+    &.alignfull {
+        padding: 0 20px;
+
+        @media #{$break-medium} {
+            padding: 0 40px;
+        }
+    }
+
+    // Fixing some funkiness with alignfull and alignwide Media & Text blocks inside columns
+    .wp-block-media-text {
+        &.alignfull,
+        &.alignwide {
+            width: 100%;
+            margin-left: 0;
+            transform: translateX(0);
+            max-width: 100%;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        &.alignwide {
+            @media #{$break-medium} {
+                max-width: 100%;
+            }
+
+            @media #{$break-large} {
+                width: 100%;
+                margin-left: 0;
+                transform: translateX(0);
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+## Latest Posts
+--------------------------------------------------------------*/
+.wp-block-latest-posts {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+        margin-bottom: 1.5em;
+    }
+
+    a {
+        @include font-size(1.777);
+        line-height: 1.25;
+
+        @media #{$break-medium} {
+            @include font-size(2.369);
+        }
+    }
+
+    &.columns-2,
+    &.columns-3 {
+        a {
+            @include font-size(1.333);
+
+            @media #{$break-medium} {
+                @include font-size(1.777);
+            }
+        }
+    }
+
+    &.columns-4,
+    &.columns-5 {
+        a {
+            @include font-size(1.125);
+
+            @media #{$break-medium} {
+                @include font-size(1.333);
+            }
+        }
+    } 
+}
+
+.wp-block-latest-posts__post-date {
+    color: $color__secondary;
 }

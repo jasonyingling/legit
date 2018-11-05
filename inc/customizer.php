@@ -177,7 +177,8 @@ function legit_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting(
 		'legit_banner_text', array(
-			'default' => null,
+			'default'           => null,
+			'sanitize_callback' => 'sanitize_textarea_field'
 		)
 	);
 

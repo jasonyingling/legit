@@ -10,9 +10,23 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php
+
+	$banner_shown = get_theme_mod( 'legit_banner_shown', 'none' );
+	
+	if ( ! ( is_front_page() && ( 'both' === $banner_shown || 'static' === $banner_shown || 'all' === $banner_shown ) ) ) :
+		
+	?>
+			
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
+
+	<?php
+	
+	endif;
+	
+	?>
 
 	<?php legit_post_thumbnail(); ?>
 

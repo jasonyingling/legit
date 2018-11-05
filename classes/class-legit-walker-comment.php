@@ -54,7 +54,7 @@ class Legit_Walker_Comment extends Walker_Comment {
 
 							/* translators: %s: comment author link */
 							printf(
-								__( '%s <span class="screen-reader-text says">says:</span>' ),
+								__( '%s <span class="screen-reader-text says">says:</span>', 'legit' ),
 								sprintf( '<span class="fn">%s</span>', get_comment_author_link( $comment ) )
 							);
                         ?>
@@ -68,7 +68,7 @@ class Legit_Walker_Comment extends Walker_Comment {
                             </a>
                             <?php
                                 $edit_comment_icon = legit_get_icon_svg( 'edit', 16 );
-                                edit_comment_link( __( 'Edit' ), '<span class="edit-link-sep">&mdash;</span> <span class="edit-link">' . $edit_comment_icon, '</span>' );
+                                edit_comment_link( __( 'Edit', 'legit' ), '<span class="edit-link-sep">&mdash;</span> <span class="edit-link">' . $edit_comment_icon, '</span>' );
                             ?>
                         </span><!-- .comment-metadata -->
 					</div><!-- .comment-author -->
@@ -76,7 +76,7 @@ class Legit_Walker_Comment extends Walker_Comment {
 					
 
 					<?php if ( '0' == $comment->comment_approved ) : ?>
-					<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></p>
+					<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'legit' ); ?></p>
 					<?php endif; ?>
 				</footer><!-- .comment-meta -->
 

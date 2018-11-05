@@ -2,6 +2,27 @@
 "AAInfo": "This is a CodeKit 3 project config file. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. Doing so will cause CodeKit to crash and/or corrupt your project. I know it looks like JSON, but it is *not*. Many numbers in this file are 64-bit long long bitFlags, which JSON does not support. These numbers *cannot* be treated as discrete values and if you attempt to parse this file as standard JSON with any public JSON parser, these values will be corrupted. This file is not backwards-compatible with CodeKit 1 or 2. For more information, see https://codekitapp.com/",
 "buildSteps": [
 	{
+		"itemsToProcess": [
+			"/js/customizer.js",
+			"/js/legit.js",
+			"/js/navigation.js",
+			"/sass/style-editor.scss",
+			"/sass/style.scss",
+			"/sass/woocommerce.scss"
+			],
+		"name": "New \"Process Certain Files\" Step",
+		"stepType": 0,
+		"uuidString": "8A84225B-A77B-41B4-810A-25320E578707"
+		},
+	{
+		"name": "New \"Run Script\" Step",
+		"scriptSourceString": "rsync -av --exclude=\".*\" --exclude=\"config.codekit3\" --exclude=\"build\" ~/Themes/legit/git/legit ~/Themes/legit/dist\ncd ~/Themes/legit/dist; find . -name \".DS_Store\" -type f -delete; zip -r legit.zip legit",
+		"scriptType": 1,
+		"scriptUUIDString": "A20F0BF6-7D5F-4FC6-ADEC-9E16E475D276",
+		"stepType": 2,
+		"uuidString": "EA9FD5D4-72F2-4CDA-AAF4-BA4A369D680F"
+		},
+	{
 		"name": "Process All Remaining Files and Folders",
 		"stepType": 1,
 		"uuidString": "1011F25E-CD94-47F4-AF99-8A9F7BEC9905"
@@ -67,8 +88,8 @@
 		"oA": 0,
 		"oAP": "/assets/onboarding.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -118,7 +139,7 @@
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/css/style-editor-min.css",
 		"oF": 0,
 		"oS": 3
@@ -126,7 +147,7 @@
 	"/css/style-editor.css.map": {
 		"cB": 0,
 		"ft": 8192,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/css/style-editor.css.map",
 		"oF": 0
 		},
@@ -255,7 +276,7 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/js/min/min/customizer-min-min.js",
 		"oF": 0,
 		"sC": 1,
@@ -265,7 +286,7 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/js/min/min/legit-min-min.js",
 		"oF": 0,
 		"sC": 1,
@@ -275,7 +296,7 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/js/min/min/navigation-min-min.js",
 		"oF": 0,
 		"sC": 1,
@@ -320,7 +341,7 @@
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/layouts/content-sidebar-min-min.css",
 		"oF": 0,
 		"oS": 3
@@ -340,7 +361,7 @@
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/layouts/sidebar-content-min-min.css",
 		"oF": 0,
 		"oS": 3
@@ -379,7 +400,7 @@
 	"/README.html": {
 		"cB": 0,
 		"ft": 8192,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/README.html",
 		"oF": 0
 		},
@@ -413,7 +434,7 @@
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/rtl-min-min.css",
 		"oF": 0,
 		"oS": 3
@@ -1084,8 +1105,8 @@
 		"oA": 0,
 		"oAP": "/screenshot.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -1115,7 +1136,7 @@
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/style-min.css",
 		"oF": 0,
 		"oS": 3
@@ -1123,7 +1144,7 @@
 	"/style.css.map": {
 		"cB": 0,
 		"ft": 8192,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/style.css.map",
 		"oF": 0
 		},
@@ -1160,7 +1181,7 @@
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/woocommerce-min.css",
 		"oF": 0,
 		"oS": 3
@@ -1168,7 +1189,7 @@
 	"/woocommerce.css.map": {
 		"cB": 0,
 		"ft": 8192,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/woocommerce.css.map",
 		"oF": 0
 		}
@@ -1182,7 +1203,8 @@
 	"displayValue": "legit",
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-gavin",
-	"iconImageWasSetByUser": 0
+	"iconImageWasSetByUser": 0,
+	"lastBuiltDate": 563128970.887802
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
@@ -1425,7 +1447,7 @@
 	"browserRefreshDelay": 0,
 	"browserslistString": ">0.2%, last 2 versions, Firefox ESR, not dead",
 	"buildFolderActive": 0,
-	"buildFolderName": "build",
+	"buildFolderName": "build/legit",
 	"cleanBuild": 1,
 	"coffeeLintFlags2": {
 		"arrow_spacing": {
@@ -2588,7 +2610,7 @@
 		},
 	"esLintSourceType": 0,
 	"externalServerAddress": "http://gutentheme.test",
-	"gitIgnoreBuildFolder": 1,
+	"gitIgnoreBuildFolder": 0,
 	"hideConfigFile": 0,
 	"jsCheckerReservedNamesString": "",
 	"jsHintFlags2": {

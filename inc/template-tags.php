@@ -191,61 +191,65 @@ if ( ! function_exists( 'legit_banner' ) ) :
 
 		?>
 
-		<div class="legit-header-grid">
+		<div class="legit-banner">
 
-			<?php do_action( 'legit_before_banner_header' ); ?>
+			<div class="legit-banner-grid">
 
-			<?php 
-			
-			if ( $legit_banner_title || $legit_banner_text ) : 
-			
-			?>
-			<header class="legit-header">
-				<?php  
+				<?php do_action( 'legit_before_banner_header' ); ?>
 
-				do_action( 'legit_before_banner_title' );
+				<?php 
 				
-				if ( $legit_banner_title ) {
-					$legit_banner_title_output = sprintf( '<h1 class="entry-title banner-title">%s</h1>', esc_html( $legit_banner_title ) );
-					/**
-					 * Filter for editing the output of the banner title section.
-					 */
-					echo apply_filters( 'legit_banner_title_output', $legit_banner_title_output, $legit_banner_title );
-				}
-
-				do_action( 'legit_after_banner_title' );
-
-				if ( $legit_banner_text ) {
-					$allowed_tags      = wp_kses_allowed_html( 'post' );
-					$legit_text        = apply_filters( 'legit_content', wp_kses( $legit_banner_text, $allowed_tags ) );
-					$legit_text_output = sprintf( '<div class="banner-text">%s</div>', $legit_text );
-					/**
-					 * Filter for editing output of the banner text section.
-					 */
-					echo apply_filters( 'legit_banner_text_output', $legit_text_output, $legit_text );
-				}
-
-				do_action( 'legit_after_banner_text' );
+				if ( $legit_banner_title || $legit_banner_text ) : 
 				
 				?>
-			</header><!-- .legit-header -->
-			<?php 
-			
-			do_action( 'legit_after_banner_header');
-				
-			endif; // end if banner title or banner text
-			
-			if ( $legit_banner_image_id ) {
-				$legit_image_output = sprintf( '<figure class="legit-header-image">%s</figure>', wp_get_attachment_image( absint( $legit_banner_image_id ), 'large' ) );
-				
-				echo apply_filters( 'legit_banner_image_output', $legit_image_output, $legit_banner_image_id );
-			}
-					
-			do_action( 'legit_after_banner_image' ); 
-			
-			?>
+				<header class="legit-header">
+					<?php  
 
-		</div><!-- .legit-header-bg -->
+					do_action( 'legit_before_banner_title' );
+					
+					if ( $legit_banner_title ) {
+						$legit_banner_title_output = sprintf( '<h1 class="entry-title banner-title">%s</h1>', esc_html( $legit_banner_title ) );
+						/**
+						 * Filter for editing the output of the banner title section.
+						 */
+						echo apply_filters( 'legit_banner_title_output', $legit_banner_title_output, $legit_banner_title );
+					}
+
+					do_action( 'legit_after_banner_title' );
+
+					if ( $legit_banner_text ) {
+						$allowed_tags      = wp_kses_allowed_html( 'post' );
+						$legit_text        = apply_filters( 'legit_content', wp_kses( $legit_banner_text, $allowed_tags ) );
+						$legit_text_output = sprintf( '<div class="banner-text">%s</div>', $legit_text );
+						/**
+						 * Filter for editing output of the banner text section.
+						 */
+						echo apply_filters( 'legit_banner_text_output', $legit_text_output, $legit_text );
+					}
+
+					do_action( 'legit_after_banner_text' );
+					
+					?>
+				</header><!-- .legit-header -->
+				<?php 
+				
+				do_action( 'legit_after_banner_header');
+					
+				endif; // end if banner title or banner text
+				
+				if ( $legit_banner_image_id ) {
+					$legit_image_output = sprintf( '<figure class="legit-header-image">%s</figure>', wp_get_attachment_image( absint( $legit_banner_image_id ), 'large' ) );
+					
+					echo apply_filters( 'legit_banner_image_output', $legit_image_output, $legit_banner_image_id );
+				}
+						
+				do_action( 'legit_after_banner_image' ); 
+				
+				?>
+
+			</div><!-- .legit-banner-bg -->
+
+		</div><!-- .legit-banner -->
 
 		<?php
 
@@ -254,12 +258,17 @@ if ( ! function_exists( 'legit_banner' ) ) :
 endif;
 
 if ( ! function_exists( 'legit_footer_site_info' ) ) :
+	/**
+	 * Outout the footer site info copyright information.
+	 *
+	 * @since 1.0.0
+	 */
 	function legit_footer_site_info() {
 		?>
 		<div class="site-info">
 			<?php
-			$legit_footer_title     = get_theme_mod( 'legit_footer_title', get_bloginfo( 'name' ) );
-			$legit_footer_link      = get_theme_mod( 'legit_footer_title_link' );
+			$legit_footer_title = get_theme_mod( 'legit_footer_title', get_bloginfo( 'name' ) );
+			$legit_footer_link  = get_theme_mod( 'legit_footer_title_link' );
 
 			if ( $legit_footer_link ) {
 				$legit_footer_title = '<a href="' . esc_url( $legit_footer_link ) . '"><span class="copyright--site-title">' . $legit_footer_title . '</span></a>';
@@ -267,7 +276,7 @@ if ( ! function_exists( 'legit_footer_site_info' ) ) :
 				$legit_footer_title = '<span class="copyright--site-title">' . esc_html( $legit_footer_title ) . '</span>';
 			}
 			
-			$legit_footer_output    = sprintf(
+			$legit_footer_output = sprintf(
 				'<span class="copyright">%s</span>
 				<span class="copyright--time">%s</span>
 				%s',

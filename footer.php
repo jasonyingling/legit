@@ -21,9 +21,9 @@
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 			</div><!-- .site-branding -->
 			<?php dynamic_sidebar( 'footer-1' ); ?>
-		</aside><!-- #secondary -->
 
-		<?php legit_footer_site_info(); ?>
+			<?php legit_footer_site_info(); ?>
+		</aside><!-- #legit-footer -->
 		
 	</footer><!-- #colophon -->
 </div><!-- #page -->

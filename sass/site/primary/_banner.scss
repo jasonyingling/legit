@@ -1,11 +1,19 @@
-.legit-header-grid {
+.legit-banner {
     margin: 0 0 60px;
-    padding: 60px 20px;
     background-image: linear-gradient(-103deg, #F8F8F8 6%, #F6F6F6 100%);
-    
+
+    @media #{$break-medium} {
+        margin: 0 10px 60px;
+    }
+}
+
+.legit-banner-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 60px 20px;
+
     @media #{$break-medium} {
         display: flex;
-        margin: 0 10px 60px;
         padding: 60px 30px;
     }
 }
