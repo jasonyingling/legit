@@ -111,14 +111,14 @@ if ( ! function_exists( 'legit_entry_footer' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'legit_post_thumbnail' ) ) :
+if ( ! function_exists( 'legit_post_archive_thumbnail' ) ) :
 	/**
 	 * Displays an optional post thumbnail.
 	 *
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function legit_post_thumbnail() {
+	function legit_post_archive_thumbnail() {
 		$legit_thumbnail = get_theme_mod( 'legit_thumbnail_layout', 'none' );
 
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() || is_singular() || $legit_thumbnail === 'none' ) {

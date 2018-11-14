@@ -67,6 +67,14 @@
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
-	<?php legit_banner( $post->ID ); ?>
+	<?php 
+	
+	do_action( 'legit_before_banner_display' );
+	
+	legit_banner( $post->ID );
+
+	do_action( 'legit_after_banner_display' );
+	
+	?>
 
 	<div id="content" class="site-content">

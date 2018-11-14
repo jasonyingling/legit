@@ -21,7 +21,8 @@ a {
 
 .site-title,
 .entry-title,
-.entry-content, {
+.entry-content,
+.banner-text {
 	a {
 		&:not(.wp-block-button__link):not(.button) {
 			border-bottom: 1px solid $color__primary;

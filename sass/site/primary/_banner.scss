@@ -48,7 +48,7 @@
 
 @supports ( display: grid ) {
     @media #{$break-medium} {
-        .legit-header-grid {
+        .legit-banner-grid {
             display: grid;
             grid-template-columns: repeat( 10, 1fr );
             grid-template-rows: auto;

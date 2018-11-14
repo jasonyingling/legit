@@ -10,7 +10,20 @@ body.gutenberg-editor-page .editor-block-list__block[data-align="wide"] {
     max-width: $size__content-large;
 }
 
-/*--------------------------------------------------------------
-# Editor Styles
---------------------------------------------------------------*/
-@import 'alignments';
+body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
+    max-width: $size__content-xlarge;
+}
+
+.editor-styles-wrapper {
+
+    /*--------------------------------------------------------------
+    # Copy Styles
+    --------------------------------------------------------------*/
+    @import 'copy';
+
+    /*--------------------------------------------------------------
+    # Block Styles
+    --------------------------------------------------------------*/
+    @import 'core-blocks';
+
+}

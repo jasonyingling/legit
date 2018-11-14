@@ -28,7 +28,7 @@
 	
 	?>
 
-	<?php legit_post_thumbnail(); ?>
+	<?php legit_post_archive_thumbnail(); ?>
 
 	<div class="entry-content">
 		<?php

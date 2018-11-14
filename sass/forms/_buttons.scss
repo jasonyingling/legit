@@ -1,7 +1,8 @@
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+.legit-button {
 	transition: all 0.125s ease-in;
 	border-width: 0px;
 	border-radius: 4px;
@@ -47,5 +48,9 @@ input[type="submit"] {
 	&.legit-search {
 		margin-right: -1em;
 	}
+}
+
+.legit-button {
+	text-decoration: none;
 }
 

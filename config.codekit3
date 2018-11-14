@@ -15,17 +15,17 @@
 		"uuidString": "8A84225B-A77B-41B4-810A-25320E578707"
 		},
 	{
+		"name": "Process All Remaining Files and Folders",
+		"stepType": 1,
+		"uuidString": "1011F25E-CD94-47F4-AF99-8A9F7BEC9905"
+		},
+	{
 		"name": "New \"Run Script\" Step",
 		"scriptSourceString": "rsync -av --exclude=\".*\" --exclude=\"config.codekit3\" --exclude=\"build\" ~/Themes/legit/git/legit ~/Themes/legit/dist\ncd ~/Themes/legit/dist; find . -name \".DS_Store\" -type f -delete; zip -r legit.zip legit",
 		"scriptType": 1,
 		"scriptUUIDString": "A20F0BF6-7D5F-4FC6-ADEC-9E16E475D276",
 		"stepType": 2,
 		"uuidString": "EA9FD5D4-72F2-4CDA-AAF4-BA4A369D680F"
-		},
-	{
-		"name": "Process All Remaining Files and Folders",
-		"stepType": 1,
-		"uuidString": "1011F25E-CD94-47F4-AF99-8A9F7BEC9905"
 		}
 	],
 "creatorBuild": "28905",
@@ -282,6 +282,16 @@
 		"sC": 1,
 		"tS": 0
 		},
+	"/js/min/jquery.fitvids-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/min/min/jquery.fitvids-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
 	"/js/min/legit-min.js": {
 		"ft": 64,
 		"ma": 0,
@@ -298,6 +308,16 @@
 		"mi": 1,
 		"oA": 1,
 		"oAP": "/js/min/min/navigation-min-min.js",
+		"oF": 0,
+		"sC": 1,
+		"tS": 0
+		},
+	"/js/min/skip-link-focus-fix-min.js": {
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/min/min/skip-link-focus-fix-min-min.js",
 		"oF": 0,
 		"sC": 1,
 		"tS": 0
@@ -865,6 +885,32 @@
 		"oS": 0,
 		"uL": 1
 		},
+	"/sass/site/gutenberg/editor/_copy.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "/sass/site/gutenberg/_copy.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/sass/site/gutenberg/editor/_core-blocks.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 1,
+		"oA": 1,
+		"oAP": "/sass/site/gutenberg/_core-blocks.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
 	"/sass/site/gutenberg/editor/_editor.scss": {
 		"aP": 0,
 		"bl": 0,
@@ -1204,7 +1250,7 @@
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "meme-gavin",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 563128970.887802
+	"lastBuiltDate": 563139023.27180004
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,

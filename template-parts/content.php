@@ -11,7 +11,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	
-	<?php legit_post_thumbnail(); ?>
+	<?php do_action( 'legit_before_post_content' ); ?>
+
+	<?php legit_post_archive_thumbnail(); ?>
 
 	<header class="entry-header">
 		<?php
