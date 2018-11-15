@@ -202,7 +202,6 @@ require get_template_directory() . '/inc/icon-functions.php';
 function legit_block_editor_styles() {
     wp_enqueue_style( 'legit-editor-styles', get_theme_file_uri( '/css/style-editor.css' ), false, '1.0', 'all' );
 }
-
 add_action( 'enqueue_block_editor_assets', 'legit_block_editor_styles' );
 
 /**

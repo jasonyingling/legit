@@ -19,7 +19,7 @@ $legit_color_options = array(
 		'description' => esc_html__( 'Describe how this color is used.', 'legit' ),
 		'slug' => 'legit-primary',
 		'option' => 'legit_primary_color',
-		'default' => '#bada55', // 🤘
+		'default' => '#00CF86', // 🤘
 		'transport' => 'postMessage',
 	),
 );
