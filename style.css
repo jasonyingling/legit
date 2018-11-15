@@ -1064,8 +1064,7 @@ a {
 .alignfull,
 .alignwide {
   width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  margin-left: calc( 50% - 50vw);
   max-width: none; }
   .alignfull img,
   .alignwide img {
@@ -1074,7 +1073,6 @@ a {
 .alignwide {
   width: 100%;
   margin-left: auto;
-  transform: translateX(0);
   max-width: 100%; }
   @media screen and (min-width: 768px) {
     .alignwide {
@@ -1694,8 +1692,7 @@ body.legit-post-feed .entry-meta {
 .alignfull,
 .alignwide {
   width: 100vw;
-  margin-left: 50%;
-  transform: translateX(-50%);
+  margin-left: calc( 50% - 50vw);
   max-width: none; }
   .alignfull img,
   .alignwide img {
@@ -1704,7 +1701,6 @@ body.legit-post-feed .entry-meta {
 .alignwide {
   width: 100%;
   margin-left: auto;
-  transform: translateX(0);
   max-width: 100%; }
   @media screen and (min-width: 768px) {
     .alignwide {
