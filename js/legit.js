@@ -1,11 +1,4 @@
 jQuery(document).ready(function ($) {
-
-    // Fitvids
-    // function fitVids() {
-    //     $('.entry-content figure:not(.wp-has-aspect-ratio)').fitVids();
-    // }
-    // fitVids();
-
     // Site Search Dropdown
     $('.js-open-site-search').live( 'click', function () {
         openSearch();
@@ -33,4 +26,15 @@ jQuery(document).ready(function ($) {
         $('.legit-search').focus();
     }
 
+    function calculateSubMenuPositions() {
+        $('#primary-menu > li').each(function(index) {
+            var offsetLeft = $(this).offset().left;
+
+            if ( offsetLeft + 480 > window.innerWidth ) {
+                $(this).find('.sub-menu .sub-menu').addClass('sub-menu--left');
+            }
+        });
+    }
+
+    calculateSubMenuPositions();
 });

@@ -47,9 +47,11 @@
 				$('.has-' + color.slug + '-color').css({
 					'color': to
 				});
-				$('.has-' + color.slug + '-background-color').css({
-					'background-color': to
-				});
+				$('.has-' + color.slug + '-background-color').css(
+					{
+						'background-color': to
+					}
+				);
 			});
 		});
 	} );

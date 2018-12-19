@@ -234,6 +234,7 @@
 				ul {
 					left: -999em;
 					top: 0;
+					width: 240px;
 				}
 			
 				li {
@@ -258,6 +259,10 @@
 
 						> ul {
 							left: 100%;
+
+							&.sub-menu--left {
+								left: -100%;
+							}
 						}
 					}
 					

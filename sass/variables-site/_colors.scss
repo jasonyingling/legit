@@ -6,9 +6,8 @@ $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 
 $color__primary: #00CF86;
-$color__accent: #ff0000;
 $color__secondary: #545459;
-$color__secondary-light: #f4f4f4;
+$color__secondary-light: #f4f4f4; // customizer
 
 $color__text-main: #292929;
 $color__text-screen: #185572;
@@ -19,8 +18,5 @@ $color__link-visited: #006300;
 $color__link-hover: #006300;
 
 
-$color__border-button: #ccc #ccc #bbb;
-$color__border-button-hover: #ccc #bbb #aaa;
-$color__border-button-focus: #aaa #bbb #bbb;
-$color__border-input: #ccc;
-$color__border-abbr: #545459;
+$color__border-input: $color__background-hr;
+$color__border-abbr: $color__secondary;

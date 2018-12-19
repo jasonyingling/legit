@@ -15,12 +15,52 @@
  */
 $legit_color_options = array(
 	array(
-		'name' => esc_html__( 'Gutenberg Primary', 'legit' ),
-		'description' => esc_html__( 'Describe how this color is used.', 'legit' ),
+		'name' => esc_html__( 'Text', 'legit' ),
+		'description' => esc_html__( 'The main text color.', 'legit' ),
+		'slug' => 'legit-text',
+		'option' => 'legit_text_color',
+		'default' => '#292929',
+		'transport' => 'refresh',
+	),
+	array(
+		'name' => esc_html__( 'Primary', 'legit' ),
+		'description' => esc_html__( 'The primary color of the site.', 'legit' ),
 		'slug' => 'legit-primary',
 		'option' => 'legit_primary_color',
-		'default' => '#00CF86', // 🤘
-		'transport' => 'postMessage',
+		'default' => '#00CF86',
+		'transport' => 'refresh',
+	),
+	array(
+		'name' => esc_html__( 'Primary - Dark', 'legit' ),
+		'description' => esc_html__( 'A darker version of the primary color.', 'legit' ),
+		'slug' => 'legit-primary-dark',
+		'option' => 'legit_primary_dark_color',
+		'default' => '#006300',
+		'transport' => 'refresh',
+	),
+	array(
+		'name' => esc_html__( 'Primary - Light', 'legit' ),
+		'description' => esc_html__( 'A lighter version of the primary color.', 'legit' ),
+		'slug' => 'legit-primary-light',
+		'option' => 'legit_primary_light_color',
+		'default' => '#c0ebda',
+		'transport' => 'refresh',
+	),
+	array(
+		'name' => esc_html__( 'Secondary', 'legit' ),
+		'description' => esc_html__( 'The secondary color of the site.', 'legit' ),
+		'slug' => 'legit-secondary',
+		'option' => 'legit_secondary_color',
+		'default' => '#545459',
+		'transport' => 'refresh',
+	),
+	array(
+		'name' => esc_html__( 'Secondary - Light', 'legit' ),
+		'description' => esc_html__( 'A lighter version of the secondary color.', 'legit' ),
+		'slug' => 'legit-secondary-light',
+		'option' => 'legit_secondary_light_color',
+		'default' => '#f4f4f4',
+		'transport' => 'refresh',
 	),
 );
 

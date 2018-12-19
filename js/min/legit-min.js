@@ -1,8 +1,3 @@
-jQuery(document).ready(function(s){function e(){s(".js-open-site-search").addClass("site-search-open").removeClass("js-open-site-search").addClass("js-close-site-search"),s(".js-site-search").slideDown(),s(".js-site-search .search-field").focus()}function c(){s(".js-close-site-search").removeClass("site-search-open").removeClass("js-close-site-search").addClass("js-open-site-search"),s(".js-site-search").slideUp(),s(".legit-search").focus()}
-// Fitvids
-// function fitVids() {
-//     $('.entry-content figure:not(.wp-has-aspect-ratio)').fitVids();
-// }
-// fitVids();
+jQuery(document).ready(function(i){function s(){i(".js-open-site-search").addClass("site-search-open").removeClass("js-open-site-search").addClass("js-close-site-search"),i(".js-site-search").slideDown(),i(".js-site-search .search-field").focus()}function e(){i(".js-close-site-search").removeClass("site-search-open").removeClass("js-close-site-search").addClass("js-open-site-search"),i(".js-site-search").slideUp(),i(".legit-search").focus()}function c(){i("#primary-menu > li").each(function(s){var e;i(this).offset().left+480>window.innerWidth&&i(this).find(".sub-menu .sub-menu").addClass("sub-menu--left")})}
 // Site Search Dropdown
-s(".js-open-site-search").live("click",function(){e()}),s(".js-close-site-search").live("click",function(){c()})});
+i(".js-open-site-search").live("click",function(){s()}),i(".js-close-site-search").live("click",function(){e()}),c()});
