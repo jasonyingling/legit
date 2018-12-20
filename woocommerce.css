@@ -9,6 +9,16 @@ WooCommerce styles override
 /**
  * Imports
  */
+/* CSS Custom Properties */
+:root {
+  --body: #ffffff;
+  --primary: #00CF86;
+  --primarydark: #006300;
+  --primarylight: #c0ebda;
+  --secondary: #545459;
+  --secondarylight: #f4f4f4;
+  --textmain: #292929; }
+
 /**
  * Shop tables
  */
@@ -258,11 +268,13 @@ p.stars a {
     font-family: "star";
     content: "\53";
     color: #292929;
+    color: var(--textmain);
     text-indent: 0;
     opacity: .25; }
   p.stars a:hover ~ a:before {
     content: "\53";
     color: #292929;
+    color: var(--textmain);
     opacity: .25; }
 
 p.stars:hover a:before {
@@ -278,6 +290,7 @@ p.stars.selected a.active:before {
 p.stars.selected a.active ~ a:before {
   content: "\53";
   color: #292929;
+  color: var(--textmain);
   opacity: .25; }
 
 p.stars.selected a:not(.active):before {

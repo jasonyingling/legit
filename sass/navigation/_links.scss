@@ -1,14 +1,14 @@
 a {
-	color: $color__text-main;
+	@include var(color, textmain);
 	font-weight: 700;
 	
 	&:visited {
-		color: $color__link-visited;
+		@include var(color, primarydark);
 	}
 	&:hover,
 	&:focus,
 	&:active {
-		color: $color__link-visited;
+		@include var(color, primarydark);
 	}
 	&:focus {
 		outline: thin dotted;
@@ -25,22 +25,22 @@ a {
 .banner-text {
 	a {
 		&:not(.wp-block-button__link):not(.button) {
-			border-bottom: 1px solid $color__primary;
-			box-shadow: inset 0 -4px 0 0 $color__primary;
-			color: $color__link;
+			@include var(border-bottom, primary, 1px solid);
+			@include var(box-shadow, primary, inset 0 -4px 0 0);
+			@include var(color, textmain);
 			display: inline;
 			font-weight: 700;
 			text-decoration: none;
 			transition: all .25s ease-in;
 			
 			&:visited {
-				color: $color__text-main;
+				@include var(color, textmain);
 			}
 			&:hover,
 			&:focus,
 			&:active {
-				box-shadow: inset 0 -2em 0 0 $color__primary;
-				color: $color__link;
+				@include var(box-shadow, primary, inset 0 -2em 0 0);
+				@include var(color, textmain);
 			}
 		}
 	}
@@ -48,49 +48,49 @@ a {
 
 .comment-author {
 	.fn a {
-		border-bottom: 1px solid $color__primary;
-		box-shadow: inset 0 -2px 0 0 $color__primary;
-		color: $color__link;
+		@include var(border-bottom, primary, 1px solid);
+		@include var(box-shadow, primary, inset 0 -2px 0 0);
+		@include var(color, textmain);
 		display: inline;
 		font-weight: 700;
 		text-decoration: none;
 		transition: all .25s ease-in;
 		
 		&:visited {
-			color: $color__text-main;
+			@include var(color, textmain);
 		}
 		&:hover,
 		&:focus,
 		&:active {
-			box-shadow: inset 0 -2em 0 0 $color__primary;
-			color: $color__link;
+			@include var(box-shadow, primary, inset 0 -2em 0 0);
+			@include var(color, textmain);
 		}
 	}
 }
 
 .comment-metadata {
 	a {
-		color: $color__text-input;
+		@include var(color, secondary);
 
 		&:hover,
 		&:focus {
-			color: $color__link-hover;
+			@include var(color, primarydark);
 		}
 	}
 }
 
 .entry-content {
 	a:not(.wp-block-button__link) {
-		background-color: #ffffff;
+		@include var(background-color, body);
 		&:visited {
-			background-color: $color__primary;
+			@include var(background-color, primary);
 		}
 	}
 }
 
 .entry-title {
 	a:not(.wp-block-button__link) {
-		box-shadow: inset 0 0 0 0 $color__primary;
+		@include var(box-shadow, primary, inset 0 0 0 0);
 		border-bottom: 0;
 	}
 }

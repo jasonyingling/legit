@@ -41,6 +41,16 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+/* CSS Custom Properties */
+:root {
+  --body: #ffffff;
+  --primary: #00CF86;
+  --primarydark: #006300;
+  --primarylight: #c0ebda;
+  --secondary: #545459;
+  --secondarylight: #f4f4f4;
+  --textmain: #292929; }
+
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -353,6 +363,7 @@ select,
 optgroup,
 textarea {
   color: #292929;
+  color: var(--textmain);
   font-family: "Merriweather", Georgia, Times, "Times New Roman", serif;
   font-size: 19px;
   font-size: 1.1875rem;
@@ -409,7 +420,8 @@ dfn, cite, em, i {
 blockquote {
   padding: 0 1.5em;
   margin: 0;
-  border-left: 4px solid #00CF86; }
+  border-left: 4px solid #00CF86;
+  border-left: 4px solid var(--primary); }
 
 address {
   margin: 0 0 1.5em; }
@@ -464,8 +476,7 @@ html {
   box-sizing: inherit; }
 
 body {
-  background: #ffffff;
-  /* Fallback for when there is no custom background color defined. */ }
+  background: var(--body); }
 
 .site {
   min-height: 100vh;
@@ -527,7 +538,9 @@ input[type="submit"],
   border-width: 0px;
   border-radius: 4px;
   background: #00CF86;
+  background: var(--primary);
   color: #292929;
+  color: var(--textmain);
   font-size: 16px;
   font-size: 1rem;
   line-height: 1;
@@ -546,8 +559,10 @@ input[type="submit"],
   .legit-button:hover,
   .legit-button:active,
   .legit-button:focus {
-    background: rgba(0, 207, 134, 0.25);
-    color: #003623; }
+    background: #c0ebda;
+    background: var(--primarylight);
+    color: #006300;
+    color: var(--primarydark); }
   button.legit-button-alt,
   input[type="button"].legit-button-alt,
   input[type="reset"].legit-button-alt,
@@ -565,13 +580,14 @@ input[type="submit"],
     .legit-button.legit-button-alt:hover,
     .legit-button.legit-button-alt:focus {
       color: #292929;
+      color: var(--textmain);
       background-color: rgba(230, 230, 230, 0.75); }
   button.legit-button-white,
   input[type="button"].legit-button-white,
   input[type="reset"].legit-button-white,
   input[type="submit"].legit-button-white,
   .legit-button.legit-button-white {
-    background-color: #ffffff; }
+    background-color: var(--body); }
     button.legit-button-white:hover, button.legit-button-white:focus,
     input[type="button"].legit-button-white:hover,
     input[type="button"].legit-button-white:focus,
@@ -582,6 +598,7 @@ input[type="submit"],
     .legit-button.legit-button-white:hover,
     .legit-button.legit-button-white:focus {
       color: #292929;
+      color: var(--textmain);
       background-color: rgba(230, 230, 230, 0.75); }
   button.legit-search,
   input[type="button"].legit-search,
@@ -645,11 +662,14 @@ textarea {
 --------------------------------------------------------------*/
 a {
   color: #292929;
+  color: var(--textmain);
   font-weight: 700; }
   a:visited {
-    color: #006300; }
+    color: #006300;
+    color: var(--primarydark); }
   a:hover, a:focus, a:active {
-    color: #006300; }
+    color: #006300;
+    color: var(--primarydark); }
   a:focus {
     outline: thin dotted; }
   a:hover, a:active {
@@ -660,8 +680,11 @@ a {
 .entry-content a:not(.wp-block-button__link):not(.button),
 .banner-text a:not(.wp-block-button__link):not(.button) {
   border-bottom: 1px solid #00CF86;
+  border-bottom: 1px solid var(--primary);
   box-shadow: inset 0 -4px 0 0 #00CF86;
+  box-shadow: inset 0 -4px 0 0 var(--primary);
   color: #292929;
+  color: var(--textmain);
   display: inline;
   font-weight: 700;
   text-decoration: none;
@@ -670,7 +693,8 @@ a {
   .entry-title a:not(.wp-block-button__link):not(.button):visited,
   .entry-content a:not(.wp-block-button__link):not(.button):visited,
   .banner-text a:not(.wp-block-button__link):not(.button):visited {
-    color: #292929; }
+    color: #292929;
+    color: var(--textmain); }
   .site-title a:not(.wp-block-button__link):not(.button):hover, .site-title a:not(.wp-block-button__link):not(.button):focus, .site-title a:not(.wp-block-button__link):not(.button):active,
   .entry-title a:not(.wp-block-button__link):not(.button):hover,
   .entry-title a:not(.wp-block-button__link):not(.button):focus,
@@ -682,34 +706,46 @@ a {
   .banner-text a:not(.wp-block-button__link):not(.button):focus,
   .banner-text a:not(.wp-block-button__link):not(.button):active {
     box-shadow: inset 0 -2em 0 0 #00CF86;
-    color: #292929; }
+    box-shadow: inset 0 -2em 0 0 var(--primary);
+    color: #292929;
+    color: var(--textmain); }
 
 .comment-author .fn a {
   border-bottom: 1px solid #00CF86;
+  border-bottom: 1px solid var(--primary);
   box-shadow: inset 0 -2px 0 0 #00CF86;
+  box-shadow: inset 0 -2px 0 0 var(--primary);
   color: #292929;
+  color: var(--textmain);
   display: inline;
   font-weight: 700;
   text-decoration: none;
   transition: all .25s ease-in; }
   .comment-author .fn a:visited {
-    color: #292929; }
+    color: #292929;
+    color: var(--textmain); }
   .comment-author .fn a:hover, .comment-author .fn a:focus, .comment-author .fn a:active {
     box-shadow: inset 0 -2em 0 0 #00CF86;
-    color: #292929; }
+    box-shadow: inset 0 -2em 0 0 var(--primary);
+    color: #292929;
+    color: var(--textmain); }
 
 .comment-metadata a {
-  color: #545459; }
+  color: #545459;
+  color: var(--secondary); }
   .comment-metadata a:hover, .comment-metadata a:focus {
-    color: #006300; }
+    color: #006300;
+    color: var(--primarydark); }
 
 .entry-content a:not(.wp-block-button__link) {
-  background-color: #ffffff; }
+  background-color: var(--body); }
   .entry-content a:not(.wp-block-button__link):visited {
-    background-color: #00CF86; }
+    background-color: #00CF86;
+    background-color: var(--primary); }
 
 .entry-title a:not(.wp-block-button__link) {
   box-shadow: inset 0 0 0 0 #00CF86;
+  box-shadow: inset 0 0 0 0 var(--primary);
   border-bottom: 0; }
 
 /*--------------------------------------------------------------
@@ -744,6 +780,7 @@ a {
         padding-bottom: 0; } }
   .main-navigation .menu {
     background: #f4f4f4;
+    background: var(--secondarylight);
     padding: 20px 0; }
     @media screen and (min-width: 768px) {
       .main-navigation .menu {
@@ -814,6 +851,7 @@ a {
         content: '';
         height: 0px;
         background: #00CF86;
+        background: var(--primary);
         width: 100%;
         position: absolute;
         bottom: 0;
@@ -835,7 +873,7 @@ a {
     padding-left: 0; }
     @media screen and (min-width: 768px) {
       .main-navigation ul {
-        background: #ffffff; } }
+        background: var(--body); } }
     .main-navigation ul ul {
       z-index: 99999;
       float: left;
@@ -872,6 +910,7 @@ a {
             height: 100%;
             width: 4px;
             background: #00CF86;
+            background: var(--primary);
             position: absolute;
             left: 0;
             top: 0;
@@ -897,7 +936,8 @@ a {
       padding: 10px 20px; }
       .main-navigation li:hover > a,
       .main-navigation li.focus > a {
-        color: #292929; } }
+        color: #292929;
+        color: var(--textmain); } }
   @media screen and (min-width: 768px) and (min-width: 768px) {
     .main-navigation li {
       float: left; } }
@@ -905,6 +945,7 @@ a {
     display: block;
     text-decoration: none;
     color: #292929;
+    color: var(--textmain);
     position: relative;
     z-index: 2; }
 
@@ -917,6 +958,7 @@ a {
   width: calc( 100% - 20px);
   height: calc( 100vh - 118px);
   background: #f4f4f4;
+  background: var(--secondarylight);
   margin: 0 10px;
   opacity: 1;
   overflow: scroll; }
@@ -954,6 +996,7 @@ a {
     transition-duration: 0.25s;
     transition-timing-function: ease-in;
     background: #292929;
+    background: var(--textmain);
     content: '';
     display: block;
     width: 30px;
@@ -1266,11 +1309,14 @@ a {
   .widget_categories a:hover,
   .widget_categories a:focus {
     color: #292929;
+    color: var(--textmain);
     background-color: rgba(230, 230, 230, 0.75); }
   .widget_archive a:visited,
   .widget_categories a:visited {
     color: #292929;
-    background-color: rgba(0, 207, 134, 0.25); }
+    color: var(--textmain);
+    background-color: #c0ebda;
+    background-color: var(--primarylight); }
 
 /*--------------------------------------------------------------
 # Content
@@ -1341,6 +1387,7 @@ a {
   font-size: 0.75rem;
   margin: 5px 0 0;
   color: #545459;
+  color: var(--secondary);
   max-width: 170px;
   line-height: 1.5; }
   @media screen and (min-width: 768px) {
@@ -1386,12 +1433,15 @@ a {
 .entry-meta {
   font-size: 16px;
   font-size: 1rem;
-  color: #545459; }
+  color: #545459;
+  color: var(--secondary); }
   .entry-meta a {
     font-weight: 700;
-    color: #545459; }
+    color: #545459;
+    color: var(--secondary); }
     .entry-meta a:hover, .entry-meta a:focus, .entry-meta a:active {
-      color: #006300; }
+      color: #006300;
+      color: var(--primarydark); }
 
 .page-content,
 .entry-content,
@@ -1549,6 +1599,7 @@ body.legit-post-feed .entry-meta {
 .comments-title {
   display: flex;
   color: #292929;
+  color: var(--textmain);
   font-size: 1em;
   align-items: center;
   white-space: nowrap; }
@@ -1608,6 +1659,7 @@ body.legit-post-feed .entry-meta {
   width: 14px;
   height: 14px;
   background-color: #00CF86;
+  background-color: var(--primary);
   border-radius: 100%;
   position: absolute;
   top: 22px;
@@ -1638,6 +1690,7 @@ body.legit-post-feed .entry-meta {
   border-radius: 4px; }
   .comment-reply-link:hover, .comment-reply-link:focus {
     color: #292929;
+    color: var(--textmain);
     background-color: rgba(230, 230, 230, 0.75); }
 
 .children .comment-body {
@@ -1647,6 +1700,7 @@ body.legit-post-feed .entry-meta {
     width: 2px;
     height: calc( 100% - 15px);
     background-color: #00CF86;
+    background-color: var(--primary);
     position: absolute;
     left: -1em;
     top: 7px; }
@@ -1778,7 +1832,8 @@ body.legit-post-feed .entry-meta {
     text-align: inherit; }
 
 .wp-block-quote:not(.is-large):not(.is-style-large) {
-  border-color: #00CF86; }
+  border-color: #00CF86;
+  border-color: var(--primary); }
 
 /*--------------------------------------------------------------
 ## Pull Quote Block
@@ -1789,7 +1844,8 @@ body.legit-post-feed .entry-meta {
   text-align: left;
   padding: 0; }
   .wp-block-pullquote:not(.has-background).is-style-solid-color {
-    background-color: #f4f4f4; }
+    background-color: #f4f4f4;
+    background-color: var(--secondarylight); }
   .wp-block-pullquote.is-style-solid-color {
     border-width: 0px;
     padding: 1.5em 0; }
@@ -1860,16 +1916,22 @@ body.legit-post-feed .entry-meta {
   border-radius: 4px; }
 
 .wp-block-button__link:not(.has-background) {
-  background-color: #00CF86; }
+  background-color: #00CF86;
+  background-color: var(--primary); }
   .wp-block-button__link:not(.has-background):hover {
-    background: rgba(0, 207, 134, 0.25);
-    color: #003623; }
+    background: #c0ebda;
+    background: var(--primarylight);
+    color: #006300;
+    color: var(--primarydark); }
   .wp-block-button__link:not(.has-background):active, .wp-block-button__link:not(.has-background):focus {
-    background: rgba(0, 207, 134, 0.25);
-    color: #003623; }
+    background: #c0ebda;
+    background: var(--primarylight);
+    color: #006300;
+    color: var(--primarydark); }
 
 .wp-block-button__link:not(.has-text-color) {
-  color: #292929; }
+  color: #292929;
+  color: var(--textmain); }
 
 /*--------------------------------------------------------------
 ## Media & Text
@@ -1963,7 +2025,8 @@ body.legit-post-feed .entry-meta {
         font-size: 1.333rem; } }
 
 .wp-block-latest-posts__post-date {
-  color: #545459; }
+  color: #545459;
+  color: var(--secondary); }
 
 /*--------------------------------------------------------------
 ## Footer
@@ -1978,7 +2041,8 @@ body.legit-post-feed .entry-meta {
     font-size: 1rem;
     width: 100%;
     margin: 0 20px;
-    color: #545459; }
+    color: #545459;
+    color: var(--secondary); }
     @media screen and (min-width: 768px) {
       .site-footer .site-info {
         width: calc( 100% - 33% - 40px);
@@ -2025,9 +2089,11 @@ body.legit-post-feed .entry-meta {
   .widget-area--footer .widget_nav_menu a {
     text-decoration: none;
     color: #545459;
+    color: var(--secondary);
     font-weight: 400; }
     .widget-area--footer .widget_nav_menu a:hover, .widget-area--footer .widget_nav_menu a:focus {
-      color: #006300; }
+      color: #006300;
+      color: var(--primarydark); }
 
 /*--------------------------------------------------------------
 # Infinite scroll

@@ -9,7 +9,7 @@
         @include font-size(1);
         width: 100%;
         margin: 0 20px;
-        color: $color__secondary;
+        @include var(color, secondary);
 
         @media #{$break-medium} {
             width: calc( 100% - 33% - 40px );
@@ -77,12 +77,12 @@
 
         a {
             text-decoration: none;
-            color: $color__secondary;
+            @include var(color, secondary);
             font-weight: 400;
 
             &:hover,
             &:focus {
-                color: $color__link-hover;
+                @include var(color, primarydark);
             }
         }
     }

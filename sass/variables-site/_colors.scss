@@ -6,17 +6,55 @@ $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
 
 $color__primary: #00CF86;
+$color__primary-light: #c0ebda;
+$color__primary-dark: #006300;
 $color__secondary: #545459;
-$color__secondary-light: #f4f4f4; // customizer
+$color__secondary-light: #f4f4f4;
 
 $color__text-main: #292929;
 $color__text-screen: #185572;
 $color__text-input: $color__secondary;
 $color__text-input-focus: #111;
 $color__link: $color__text-main;
-$color__link-visited: #006300;
-$color__link-hover: #006300;
+$color__link-visited: $color__primary-dark;
+$color__link-hover: $color__primary-dark;
 
 
 $color__border-input: $color__background-hr;
 $color__border-abbr: $color__secondary;
+
+/* CSS Custom Properties */
+$vars: (
+  primary: $color__primary,
+  primarydark: $color__primary-dark,
+  primarylight: $color__primary-light,
+  secondary: $color__secondary,
+  secondarylight: $color__secondary-light,
+  textmain: $color__text-main,
+);
+
+:root {
+  --body: #{$color__background-body};
+  --primary: #{map-get($vars, primary)};
+  --primarydark: #{map-get($vars, primarydark)};
+  --primarylight: #{map-get($vars, primarylight)};
+  --secondary: #{map-get($vars, secondary)};
+  --secondarylight: #{map-get($vars, secondarylight)};
+  --textmain: #{map-get($vars, textmain)};
+}
+
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --body: #{$color__text-main};
+//     --textmain: #{$color__background-body};
+//   }
+// }
+
+@mixin var($property, $varName, $preVar:null, $postVar:null, $args...) {
+  #{$property}: $preVar map-get($vars, $varName) $postVar $args;
+  #{$property}: $preVar var(--#{$varName}) $postVar $args;
+}
+
+// body {
+//     @include var(background-color, primary);
+// }

@@ -31,16 +31,16 @@
 
 .entry-meta {
 	@include font-size(1);
-	color: $color__secondary;
+	@include var(color, secondary);
 
 	a {
 		font-weight: 700;
-		color: $color__secondary;
+		@include var(color, secondary);
 
 		&:hover,
 		&:focus,
 		&:active {
-			color: $color__link-hover;
+			@include var(color, primarydark);
 		}
 	}
 }

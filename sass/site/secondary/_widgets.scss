@@ -164,13 +164,13 @@
 
 		&:hover,
 		&:focus {
-			color: $color__text-main;
+			@include var(color, textmain);
 			background-color: rgba($color__background-button, 0.75);
 		}
 
 		&:visited {
-			color: $color__text-main;
-			background-color: rgba( $color__primary, .25 );
+			@include var(color, textmain);
+			@include var(background-color, primarylight);
 		}
 	}
 }

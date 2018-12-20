@@ -4,22 +4,22 @@
 .wp-block {
     a {
         &:not(.wp-block-button__link):not(.button) {
-            border-bottom: 1px solid $color__primary;
-            box-shadow: inset 0 -4px 0 0 $color__primary;
-            color: $color__link;
+            @include var(border-bottom, primary, 1px solid);
+            @include var(box-shadow, primary, inset 0 -4px 0 0);
+            @include var(color, textmain);
             display: inline;
             font-weight: 700;
             text-decoration: none;
             transition: all .25s ease-in;
             
             &:visited {
-                color: $color__text-main;
+                @include var(color, textmain);
             }
             &:hover,
             &:focus,
             &:active {
-                box-shadow: inset 0 -2em 0 0 $color__primary;
-                color: $color__link;
+                @include var(box-shadow, primary, inset 0 -2em 0 0);
+                @include var(color, textmain);
             }
         }
     }
@@ -71,7 +71,7 @@
 
     &:not(.is-large) {
         &:not(.is-style-large) {
-            border-color: $color__primary;
+            @include var(border-color, primary);
         }
     }
 
@@ -97,7 +97,7 @@
 
     &:not(.has-background) {
         &.is-style-solid-color {
-            background-color: $color__secondary-light;
+            @include var(background-color, secondarylight);
         }
     }
 
@@ -203,22 +203,22 @@
 
 .wp-block-button__link {
     &:not(.has-background) {
-        background-color: $color__primary;
+        @include var(background-color, primary);
 
             &:hover {
-                background: rgba( $color__primary, .25 );
-                color: darken( $color__primary, 30% );
+                @include var(background, primarylight);
+                @include var(color, primarydark);
             }
 
             &:active,
             &:focus {
-                background: rgba( $color__primary, .25 );
-                color: darken( $color__primary, 30% );
+                @include var(background, primarylight);
+                @include var(color, primarydark);
 	        }
     }
 
     &:not(.has-text-color) {
-        color: $color__text-main;
+        @include var(color, textmain);
     }
 }
 
@@ -357,5 +357,5 @@
 }
 
 .wp-block-latest-posts__post-date {
-    color: $color__secondary;
+    @include var(color, secondary);
 }

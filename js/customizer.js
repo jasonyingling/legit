@@ -54,7 +54,50 @@
 				);
 			});
 		});
-	} );
+	});
+	
+	// Customizer Colors with CSS Custom Variables
+	// Primary Text
+	wp.customize('legit_text_color', function (value) {
+		value.bind(function (to) {
+			document.documentElement.style.setProperty('--textmain', to);
+		});
+	});
+
+	// Primary
+	wp.customize('legit_primary_color', function(value) {
+		value.bind(function(to) {
+			document.documentElement.style.setProperty('--primary', to);
+		})
+	});
+
+	// Primary Dark
+	wp.customize('legit_primary_dark_color', function(value) {
+		value.bind(function(to) {
+			document.documentElement.style.setProperty('--primarydark', to);
+		});
+	});
+
+	// Primary Light
+	wp.customize('legit_primary_light_color', function(value) {
+		value.bind(function(to) {
+			document.documentElement.style.setProperty('--primarylight', to);
+		});
+	});
+
+	// Secondary
+	wp.customize('legit_secondary_color', function(value) {
+		value.bind(function(to) {
+			document.documentElement.style.setProperty('--secondary', to);
+		});
+	});
+
+	// Secondary Light
+	wp.customize('legit_secondary_light_color', function(value) {
+		value.bind(function(to) {
+			document.documentElement.style.setProperty('--secondary-light', to);
+		});
+	});
 
 	// Banner Title and Text
 	wp.customize('legit_banner_title', function(value) {

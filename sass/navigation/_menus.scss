@@ -30,7 +30,7 @@
 	}
 
 	.menu {
-		background: $color__secondary-light;
+		@include var(background, secondarylight);
 		padding: 20px 0;
 		
 
@@ -146,7 +146,7 @@
 						transition: height 0.125s ease-in;
 						content: '';
 						height: 0px;
-						background: $color__primary;
+						@include var(background, primary);
 						width: 100%;
 						position: absolute;
 						bottom: 0;
@@ -184,7 +184,7 @@
 		padding-left: 0;
 		
 		@media #{$break-medium} {
-			background: #ffffff;
+			@include var(background, body);
 		}
 
 		ul {
@@ -243,7 +243,7 @@
 						content: '';
 						height: 100%;
 						width: 4px;
-						background: $color__primary;
+						@include var(background, primary);
 						position: absolute;
 						left: 0;
 						top: 0;
@@ -291,7 +291,7 @@
 
 			&:hover > a,
 			&.focus > a {
-				color: $color__text-main;
+				@include var(color, textmain);
 			}
 
 			@media #{$break-medium} {
@@ -303,15 +303,9 @@
 	a {
 		display: block;
 		text-decoration: none;
-		color: $color__text-main;
+		@include var(color, textmain);
 		position: relative;
 		z-index: 2;
-	}
-
-	.current_page_item > a,
-	.current-menu-item > a,
-	.current_page_ancestor > a,
-	.current-menu-ancestor > a {
 	}
 }
 
@@ -325,7 +319,7 @@
 	> div {
 		width: calc( 100% - 20px );
 		height: calc( 100vh - 118px );
-		background: $color__secondary-light;
+		@include var(background, secondarylight);
 		margin: 0 10px;
 		opacity: 1;
 		overflow: scroll;
@@ -378,7 +372,7 @@
 		transition-property: transform, top, bottom, right, opacity;
 		transition-duration: 0.25s;
 		transition-timing-function: ease-in;
-		background: $color__text-main;
+		@include var(background, textmain);
 		content: '';
 		display: block;
 		width: 30px;

@@ -7,7 +7,7 @@
 
 .comments-title {
 	display: flex;
-	color: $color__text-main;
+	@include var(color, textmain);
 	font-size: 1em;
 	align-items: center;
 	white-space: nowrap;
@@ -93,7 +93,7 @@
 	justify-content: center;
 	width: 14px;
 	height: 14px;
-	background-color: $color__primary;
+	@include var(background-color, primary);
 	border-radius: 100%;
 	position: absolute;
 	top: 22px;
@@ -129,7 +129,7 @@
 
 	&:hover,
 	&:focus {
-		color: $color__text-main;
+		@include var(color, textmain);
 		background-color: rgba($color__background-button, 0.75);
 	}
 }
@@ -142,7 +142,7 @@
 			content: '';
 			width: 2px;
 			height: calc( 100% - 15px );
-			background-color: $color__primary;
+			@include var(background-color, primary);
 			position: absolute;
 			left: -1em;
 			top: 7px;

@@ -20,7 +20,7 @@ $legit_color_options = array(
 		'slug' => 'legit-text',
 		'option' => 'legit_text_color',
 		'default' => '#292929',
-		'transport' => 'refresh',
+		'transport' => 'postMessage',
 	),
 	array(
 		'name' => esc_html__( 'Primary', 'legit' ),
@@ -28,7 +28,7 @@ $legit_color_options = array(
 		'slug' => 'legit-primary',
 		'option' => 'legit_primary_color',
 		'default' => '#00CF86',
-		'transport' => 'refresh',
+		'transport' => 'postMessage',
 	),
 	array(
 		'name' => esc_html__( 'Primary - Dark', 'legit' ),
@@ -36,7 +36,7 @@ $legit_color_options = array(
 		'slug' => 'legit-primary-dark',
 		'option' => 'legit_primary_dark_color',
 		'default' => '#006300',
-		'transport' => 'refresh',
+		'transport' => 'postMessage',
 	),
 	array(
 		'name' => esc_html__( 'Primary - Light', 'legit' ),
@@ -44,7 +44,7 @@ $legit_color_options = array(
 		'slug' => 'legit-primary-light',
 		'option' => 'legit_primary_light_color',
 		'default' => '#c0ebda',
-		'transport' => 'refresh',
+		'transport' => 'postMessage',
 	),
 	array(
 		'name' => esc_html__( 'Secondary', 'legit' ),
@@ -52,7 +52,7 @@ $legit_color_options = array(
 		'slug' => 'legit-secondary',
 		'option' => 'legit_secondary_color',
 		'default' => '#545459',
-		'transport' => 'refresh',
+		'transport' => 'postMessage',
 	),
 	array(
 		'name' => esc_html__( 'Secondary - Light', 'legit' ),
@@ -60,7 +60,7 @@ $legit_color_options = array(
 		'slug' => 'legit-secondary-light',
 		'option' => 'legit_secondary_light_color',
 		'default' => '#f4f4f4',
-		'transport' => 'refresh',
+		'transport' => 'postMessage',
 	),
 );
 

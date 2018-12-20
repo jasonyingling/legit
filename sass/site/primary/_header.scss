@@ -79,7 +79,7 @@
 .site-description {
 	@include font-size(0.75);
 	margin: 5px 0 0;
-	color: $color__secondary;
+	@include var(color, secondary);
 	max-width: 170px;
 	line-height: 1.5;
 

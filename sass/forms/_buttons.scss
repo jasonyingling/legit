@@ -6,8 +6,8 @@ input[type="submit"],
 	transition: all 0.125s ease-in;
 	border-width: 0px;
 	border-radius: 4px;
-	background: $color__primary;
-	color: $color__text-main;
+	@include var(background, primary);
+	@include var(color, textmain);
 	@include font-size(1);
 	line-height: 1;
 	font-weight: 700;
@@ -16,8 +16,8 @@ input[type="submit"],
 	&:hover,
 	&:active,
 	&:focus {
-		background: rgba( $color__primary, .25 );
-		color: darken( $color__primary, 30% );
+		@include var(background, primarylight);
+		@include var(color, primarydark);
 	}
 
 	&.legit-button-alt {
@@ -26,17 +26,17 @@ input[type="submit"],
 
 		&:hover,
 		&:focus {
-			color: $color__text-main;
+			@include var(color, textmain);
 			background-color: rgba($color__background-button, 0.75);
 		}
 	}
 
 	&.legit-button-white {
-		background-color: #ffffff;
+		@include var(background-color, body);
 
 		&:hover,
 		&:focus {
-			color: $color__text-main;
+			@include var(color, textmain);
 			background-color: rgba($color__background-button, 0.75);
 		}
 	}
