@@ -4,8 +4,8 @@ Contributors: yingling017
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
-Tested up to: 4.8
-Stable tag: 1.0.0
+Tested up to: 5.0.2
+Stable tag: 1.1.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
@@ -29,7 +29,14 @@ legit includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 1.1.0 - Dec 20 2018 =
+* Adding in CSS Custom Properties for colors
+* JavaScript fallback for customizer colors for browsers not supporting CSS Custom Properties
+* Adding more colors into the customizer
+* Adding fonts into editor
+* Better editor styles
+
+= 1.0 - May 12 2018 =
 * Initial release
 
 == Credits ==

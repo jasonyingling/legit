@@ -200,6 +200,7 @@ require get_template_directory() . '/inc/icon-functions.php';
  * Enqueue block editor style
  */
 function legit_block_editor_styles() {
+	wp_enqueue_style( 'legit-fonts', 'https://fonts.googleapis.com/css?family=Merriweather:400,700', array(), '1.0.0', false );
     wp_enqueue_style( 'legit-editor-styles', get_theme_file_uri( '/css/style-editor.css' ), false, '1.0', 'all' );
 }
 add_action( 'enqueue_block_editor_assets', 'legit_block_editor_styles' );

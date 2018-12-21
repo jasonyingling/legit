@@ -61,6 +61,10 @@ body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
   /*--------------------------------------------------------------
 ## Latest Posts
 --------------------------------------------------------------*/ }
+  .editor-styles-wrapper .wp-block {
+    font-family: 'Merriweather', Georgia, Times, 'Times New Roman', serif; }
+    .editor-styles-wrapper .wp-block .editor-post-title__block .editor-post-title__input {
+      font-family: 'Merriweather', Georgia, Times, 'Times New Roman', serif; }
   .editor-styles-wrapper blockquote {
     padding: 0 1.5em;
     margin: 0;
@@ -183,7 +187,8 @@ body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
     .editor-styles-wrapper .wp-block-separator.is-style-wide {
       border-bottom-width: 1px; }
   .editor-styles-wrapper .wp-block-button .wp-block-button__link {
-    border-radius: 4px; }
+    border-radius: 4px;
+    font-weight: 700; }
   .editor-styles-wrapper .wp-block-button__link:not(.has-background) {
     background-color: #00CF86;
     background-color: var(--primary); }

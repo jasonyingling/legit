@@ -15,6 +15,13 @@ body.gutenberg-editor-page .editor-block-list__block[data-align="full"] {
 }
 
 .editor-styles-wrapper {
+    .wp-block {
+        font-family: 'Merriweather', Georgia, Times, 'Times New Roman', serif;
+
+        .editor-post-title__block .editor-post-title__input {
+            font-family: 'Merriweather', Georgia, Times, 'Times New Roman', serif;
+        }
+    }
 
     /*--------------------------------------------------------------
     # Copy Styles

@@ -62,6 +62,14 @@ $legit_color_options = array(
 		'default' => '#f4f4f4',
 		'transport' => 'postMessage',
 	),
+	array(
+		'name' => esc_html__( 'Banner Background', 'legit' ),
+		'description' => esc_html__( 'Banner background color.', 'legit' ),
+		'slug' => 'legit-banner',
+		'option' => 'legit_banner_color',
+		'default' => '#f6f6f6',
+		'transport' => 'postMessage',
+	),
 );
 
 $legit_color_options = apply_filters( 'legit_filter_color_options', $legit_color_options );
