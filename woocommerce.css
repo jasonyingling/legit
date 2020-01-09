@@ -17,7 +17,8 @@ WooCommerce styles override
   --primarylight: #c0ebda;
   --secondary: #545459;
   --secondarylight: #f4f4f4;
-  --textmain: #292929; }
+  --textmain: #292929;
+  --precolor: #eee; }
 
 /**
  * Shop tables

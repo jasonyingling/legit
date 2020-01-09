@@ -29,7 +29,7 @@ address {
 }
 
 pre {
-	background: $color__background-pre;
+	@include var(background, precolor);
 	font-family: $font__pre;
 	@include font-size(1);
 	line-height: $font__line-height-pre;
@@ -42,7 +42,7 @@ pre {
 code, kbd, tt, var {
 	font-family: $font__code;
 	@include font-size(1);
-	background: $color__background-pre;
+	@include var(background, precolor);
 	font-weight: bold;
 }
 

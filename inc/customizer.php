@@ -436,7 +436,6 @@ function legit_customizer_styles() {
 			input[type=\"reset\"],
 			input[type=\"submit\"],
 			.legit-button, .post-author-badge,
-			.entry-content a:not(.wp-block-button__link):visited,
 			.children .comment-body:before, .wp-block-button__link:not(.has-background) { 
 				background-color: ${legit_primary_color}; 
 				background-color: var(--primary); 

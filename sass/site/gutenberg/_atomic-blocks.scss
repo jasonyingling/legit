@@ -1,0 +1,40 @@
+.ab-block-profile {
+    .ab-social-links {
+        li {
+            a {
+                &:not(.wp-block-button__link),
+                &:not(.button) {
+                    border: none;
+                    box-shadow: none;
+                }
+                
+            }
+        }
+    }
+}
+
+.ab-block-button,
+.ab-cta-button {
+    .ab-button {
+        border: none !important;
+        box-shadow: none !important;
+        
+        &:hover,
+        &:focus {
+            box-shadow: inset 0 0 200px rgba(255,255,255,0.15) !important;
+        }
+    }
+}
+
+.ab-share-list {
+    a {
+        border: none !important;
+        box-shadow: none !important;
+        color: #ffffff !important;
+        
+        &:hover,
+        &:focus {
+            box-shadow: inset 0 0 200px rgba(255,255,255,0.15) !important;
+        }
+    }
+}

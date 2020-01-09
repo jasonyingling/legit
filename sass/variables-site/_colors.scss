@@ -31,6 +31,7 @@ $vars: (
   secondary: $color__secondary,
   secondarylight: $color__secondary-light,
   textmain: $color__text-main,
+  precolor: $color__background-pre,
 );
 
 :root {
@@ -41,6 +42,7 @@ $vars: (
   --secondary: #{map-get($vars, secondary)};
   --secondarylight: #{map-get($vars, secondarylight)};
   --textmain: #{map-get($vars, textmain)};
+  --precolor: #{map-get($vars, precolor)};
 }
 
 // @media (prefers-color-scheme: dark) {

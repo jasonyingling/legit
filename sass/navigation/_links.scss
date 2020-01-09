@@ -79,15 +79,6 @@ a {
 	}
 }
 
-.entry-content {
-	a:not(.wp-block-button__link) {
-		@include var(background-color, body);
-		&:visited {
-			@include var(background-color, primary);
-		}
-	}
-}
-
 .entry-title {
 	a:not(.wp-block-button__link) {
 		@include var(box-shadow, primary, inset 0 0 0 0);

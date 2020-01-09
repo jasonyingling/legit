@@ -1,4 +1,15 @@
 /*--------------------------------------------------------------
+## Figcaptions
+--------------------------------------------------------------*/
+.wp-block-audio,
+.wp-block-image {
+    figcaption {
+        @include var(color, textmain);
+        opacity: .7;
+    }
+}
+
+/*--------------------------------------------------------------
 ## Block Links
 --------------------------------------------------------------*/
 .wp-block {
@@ -36,6 +47,11 @@
         &:last-of-type {
             margin-bottom: 0.25em;
         }
+    }
+
+    cite {
+        @include var(color, textmain);
+        opacity: .7;
     }
 
     &.is-style-large,
@@ -170,6 +186,8 @@
 .wp-block-pullquote cite,
 .wp-block-pullquote footer {
     text-transform: inherit;
+    @include var(color, textmain);
+    opacity: .7;
 }
 
 /*--------------------------------------------------------------

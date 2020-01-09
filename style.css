@@ -4,7 +4,7 @@ Theme URI: https://themes.pizza
 Author: yingling017
 Author URI: https://jasonyingling.me
 Description: A Gutenberg powered WordPress theme for blogging and writing.
-Version: 1.1.0
+Version: 1.1.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: legit
@@ -49,7 +49,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
   --primarylight: #c0ebda;
   --secondary: #545459;
   --secondarylight: #f4f4f4;
-  --textmain: #292929; }
+  --textmain: #292929;
+  --precolor: #eee; }
 
 /*--------------------------------------------------------------
 # Normalize
@@ -428,6 +429,7 @@ address {
 
 pre {
   background: #eee;
+  background: var(--precolor);
   font-family: "Courier New", Courier, monospace;
   font-size: 16px;
   font-size: 1rem;
@@ -442,6 +444,7 @@ code, kbd, tt, var {
   font-size: 16px;
   font-size: 1rem;
   background: #eee;
+  background: var(--precolor);
   font-weight: bold; }
 
 abbr, acronym {
@@ -736,12 +739,6 @@ a {
   .comment-metadata a:hover, .comment-metadata a:focus {
     color: #006300;
     color: var(--primarydark); }
-
-.entry-content a:not(.wp-block-button__link) {
-  background-color: var(--body); }
-  .entry-content a:not(.wp-block-button__link):visited {
-    background-color: #00CF86;
-    background-color: var(--primary); }
 
 .entry-title a:not(.wp-block-button__link) {
   box-shadow: inset 0 0 0 0 #00CF86;
@@ -1794,6 +1791,15 @@ body.legit-post-feed .entry-meta {
 # Core Blocks
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
+## Figcaptions
+--------------------------------------------------------------*/
+.wp-block-audio figcaption,
+.wp-block-image figcaption {
+  color: #292929;
+  color: var(--textmain);
+  opacity: .7; }
+
+/*--------------------------------------------------------------
 ## Audio Block
 --------------------------------------------------------------*/
 .wp-block-audio audio {
@@ -1808,6 +1814,11 @@ body.legit-post-feed .entry-meta {
   margin-bottom: 0.25em; }
   .wp-block-quote p:last-of-type {
     margin-bottom: 0.25em; }
+
+.wp-block-quote cite {
+  color: #292929;
+  color: var(--textmain);
+  opacity: .7; }
 
 .wp-block-quote.is-style-large, .wp-block-quote.is-large {
   border-width: 0;
@@ -1842,7 +1853,9 @@ body.legit-post-feed .entry-meta {
   margin-bottom: 40px;
   border-width: 0px;
   text-align: left;
-  padding: 0; }
+  padding: 0;
+  color: #292929;
+  color: var(--textmain); }
   .wp-block-pullquote:not(.has-background).is-style-solid-color {
     background-color: #f4f4f4;
     background-color: var(--secondarylight); }
@@ -1882,7 +1895,10 @@ body.legit-post-feed .entry-meta {
 .wp-block-pullquote__citation,
 .wp-block-pullquote cite,
 .wp-block-pullquote footer {
-  text-transform: inherit; }
+  text-transform: inherit;
+  color: #292929;
+  color: var(--textmain);
+  opacity: .7; }
 
 /*--------------------------------------------------------------
 ## Cover Image Block
@@ -2009,6 +2025,14 @@ body.legit-post-feed .entry-meta {
       .wp-block-latest-posts a {
         font-size: 37.904px;
         font-size: 2.369rem; } }
+  @media screen and (min-width: 768px) {
+    .wp-block-latest-posts.columns-2 li {
+      width: calc( 50% - 32px);
+      margin: 0 32px 32px 32px; }
+      .wp-block-latest-posts.columns-2 li:nth-child(even) {
+        margin-right: 0; }
+      .wp-block-latest-posts.columns-2 li:nth-child(odd) {
+        margin-left: 0; } }
   .wp-block-latest-posts.columns-2 a, .wp-block-latest-posts.columns-3 a {
     font-size: 21.328px;
     font-size: 1.333rem; }
@@ -2027,6 +2051,29 @@ body.legit-post-feed .entry-meta {
 .wp-block-latest-posts__post-date {
   color: #545459;
   color: var(--secondary); }
+
+/*--------------------------------------------------------------
+# Atomic Blocks
+--------------------------------------------------------------*/
+.ab-block-profile .ab-social-links li a:not(.wp-block-button__link), .ab-block-profile .ab-social-links li a:not(.button) {
+  border: none;
+  box-shadow: none; }
+
+.ab-block-button .ab-button,
+.ab-cta-button .ab-button {
+  border: none !important;
+  box-shadow: none !important; }
+  .ab-block-button .ab-button:hover, .ab-block-button .ab-button:focus,
+  .ab-cta-button .ab-button:hover,
+  .ab-cta-button .ab-button:focus {
+    box-shadow: inset 0 0 200px rgba(255, 255, 255, 0.15) !important; }
+
+.ab-share-list a {
+  border: none !important;
+  box-shadow: none !important;
+  color: #ffffff !important; }
+  .ab-share-list a:hover, .ab-share-list a:focus {
+    box-shadow: inset 0 0 200px rgba(255, 255, 255, 0.15) !important; }
 
 /*--------------------------------------------------------------
 ## Footer

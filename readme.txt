@@ -1,7 +1,7 @@
 === legit ===
 
 Contributors: yingling017
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Tags: custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 Requires at least: 4.5
 Tested up to: 5.0.2
@@ -9,11 +9,11 @@ Stable tag: 1.1.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 
-A starter theme called legit, or underscores.
+Legit is a simple theme built for the Gutenberg editor.
 
 == Description ==
 
-Hi. I'm a starter theme called legit, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+
 
 == Installation ==
 
@@ -29,6 +29,9 @@ legit includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 
+= 1.1.1 - Jan 22 2018 =
+* Adjusting :visited on main content links
+
 = 1.1.0 - Dec 20 2018 =
 * Adding in CSS Custom Properties for colors
 * JavaScript fallback for customizer colors for browsers not supporting CSS Custom Properties
@@ -42,4 +45,5 @@ legit includes support for Infinite Scroll in Jetpack.
 == Credits ==
 
 * Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* icon-functions.php based on Twentynineteen https://wordpress.org/themes/twentynineteen/, (C) 2018-2019 WordPress.org [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)

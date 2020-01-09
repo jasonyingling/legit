@@ -4,43 +4,15 @@
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
-( function() {
-	var container, html, button, menu, links, buttons, i, j, k, m, len, containerWidgets, menuWidget;
-
-	html = document.getElementsByTagName('html')[0];
+(function () {
+	var container, button, menu, links, i, len;
 
 	container = document.getElementById('site-navigation');
-	
-	/**
-	 * Setting up the .focus to work on widgets too
-	 */
-	containerWidgets = document.getElementsByClassName('widget_categories');
-
-	if (!container && !containerWidgets) {
+	if (!container) {
 		return;
 	}
 
-	for (j = 0, len = containerWidgets.length; j < len - 1; j++) {
-
-		if ( ! containerWidgets[j] ) {
-			continue;
-		}
-
-		if ( ! ( containerWidgets[j].getElementsByTagName('ul').length > 1 ) ) {
-			continue;
-		}
-
-		menuWidget = containerWidgets[j].getElementsByTagName('ul')[0];
-
-		linksWidget = menuWidget.getElementsByTagName('a');
-
-		for (k = 0, len = linksWidget.length; k < len; k++) {
-			linksWidget[k].addEventListener('focus', toggleFocusWidget, true);
-			linksWidget[k].addEventListener('blur', toggleFocusWidget, true);
-		}
-	}
-
-	button = container.getElementsByClassName('menu-toggle')[0];
+	button = container.getElementsByTagName('button')[0];
 	if ('undefined' === typeof button) {
 		return;
 	}
@@ -58,15 +30,13 @@
 		menu.className += ' nav-menu';
 	}
 
-	button.onclick = function() {
+	button.onclick = function () {
 		if (-1 !== container.className.indexOf('toggled')) {
 			container.className = container.className.replace(' toggled', '');
-			html.className = html.className.replace(' show-nav', '');
 			button.setAttribute('aria-expanded', 'false');
 			menu.setAttribute('aria-expanded', 'false');
 		} else {
 			container.className += ' toggled';
-			html.className += ' show-nav';
 			button.setAttribute('aria-expanded', 'true');
 			menu.setAttribute('aria-expanded', 'true');
 		}
@@ -81,14 +51,6 @@
 		links[i].addEventListener('blur', toggleFocus, true);
 	}
 
-	buttons = menu.getElementsByTagName('button');
-
-	for (m = 0, len = links.length; m < len - 1; m++) {
-		if ( buttons[m] ) {
-			buttons[m].addEventListener('click', toggleMobileNav, true);
-		}		
-	}
-
 	/**
 	 * Sets or removes .focus class on an element.
 	 */
@@ -97,38 +59,7 @@
 
 		// Move up through the ancestors of the current link until we hit .nav-menu.
 		while (-1 === self.className.indexOf('nav-menu')) {
-			// On li elements toggle the class .focus.
-			if ('li' === self.tagName.toLowerCase()) {
-				if (-1 !== self.className.indexOf('focus')) {
-					self.className = self.className.replace(' focus', '');
-				} else {
-					self.className += ' focus';
-				}
-			}
 
-			self = self.parentElement;
-		}
-	}
-
-	/**
-	 * Sets or removes .focused class on an element.
-	 */
-	function toggleMobileNav() {
-		var self = this;
-
-		self = self.parentElement;
-		
-		self.classList.toggle("nav-open");
-	}
-
-	/**
-	 * Sets or removes .focus class on an element in widgets
-	 */
-	function toggleFocusWidget() {
-		var self = this;
-
-		// Move up through the ancestors of the current link until we hit .nav-menu.
-		while (-1 === self.className.indexOf('widget')) {
 			// On li elements toggle the class .focus.
 			if ('li' === self.tagName.toLowerCase()) {
 				if (-1 !== self.className.indexOf('focus')) {
@@ -145,15 +76,13 @@
 	/**
 	 * Toggles `focus` class to allow submenu access on tablets.
 	 */
-	(function(container) {
-		var touchStartFn,
-			i,
+	(function (container) {
+		var touchStartFn, i,
 			parentLink = container.querySelectorAll('.menu-item-has-children > a, .page_item_has_children > a');
 
 		if ('ontouchstart' in window) {
-			touchStartFn = function(e) {
-				var menuItem = this.parentNode,
-					i;
+			touchStartFn = function (e) {
+				var menuItem = this.parentNode, i;
 
 				if (!menuItem.classList.contains('focus')) {
 					e.preventDefault();
@@ -173,5 +102,5 @@
 				parentLink[i].addEventListener('touchstart', touchStartFn, false);
 			}
 		}
-	})(container);
-} )();
+	}(container));
+})();
